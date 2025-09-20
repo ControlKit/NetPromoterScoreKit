@@ -343,7 +343,7 @@ public class NetPromoterScoreView_Star: UIView, NetPromoterScoreViewProtocol {
             constant: 253).isActive = true
     }
     public func setupCorners() {
-        DispatchQueue.main.async { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
             guard let self else { return }
             self.submitButton.roundCorners(corners: [.topLeft, .topRight], radius: self.config.submitButtonRadius)
             self.cancelButton.roundCorners(corners: [.bottomLeft, .bottomRight], radius: self.config.cancelButtonRadius)
