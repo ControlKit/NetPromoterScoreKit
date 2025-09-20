@@ -78,7 +78,7 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol {
     }()
     lazy var rateView: UIStackView = {
         let stackView = UIStackView()
-        stackView.backgroundColor = .clear
+        stackView.backgroundColor = .red
         stackView.axis = .horizontal
         stackView.alignment = .center
         stackView.distribution = .fillEqually
@@ -376,9 +376,6 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol {
             attribute: .bottom,
             multiplier: 1,
             constant: 23).isActive = true
-        maxLabel.leadingAnchor.constraint(
-            equalTo: minLabel.trailingAnchor,
-            constant: 4).isActive = true
         maxLabel.trailingAnchor.constraint(
             equalTo: containerView.trailingAnchor,
             constant: -30).isActive = true
@@ -445,7 +442,7 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol {
         NSLayoutConstraint(
             item: descriptionTitleLabel,
             attribute: .height,
-            relatedBy: .greaterThanOrEqual,
+            relatedBy: .equal,
             toItem: nil,
             attribute: .notAnAttribute,
             multiplier: 1,
