@@ -375,6 +375,7 @@ public class NetPromoterScoreViewConfig_Star: NetPromoterScoreViewConfig {
     public override init(lang: String) {
         super.init(lang: lang)
         style = .star
+        starType = .ten
         questionFont = UIFont.systemFont(ofSize: 17, weight: .semibold)
         questionText = "Net Promoter Score"
         questionTitleColor = .black

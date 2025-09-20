@@ -52,7 +52,7 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol {
         label.font = config.questionFont
         label.text = config.questionText
         label.textColor = config.questionTitleColor
-        label.textAlignment = .left
+        label.textAlignment = .center
         label.numberOfLines = 0
         return label
     }()
@@ -78,7 +78,7 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol {
     }()
     lazy var rateView: UIStackView = {
         let stackView = UIStackView()
-        stackView.backgroundColor = .red
+        stackView.backgroundColor = .clear
         stackView.axis = .horizontal
         stackView.alignment = .center
         stackView.distribution = .fillEqually
@@ -200,6 +200,32 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol {
         setTextViewConstraint()
         setSubmitButtonConstraint()
         setCancelButtonConstraint()
+    }
+    func addDigitsToRateView() {
+        for (index, star) in (1...config.starType.rawValue).enumerated() {
+            rateView.addArrangedSubview(getDigitButton(tag: index))
+        }
+    }
+    func getDigitButton(tag: Int) -> UIButton {
+        let button = UIButton()
+        button.backgroundColor = .clear
+        button.addTarget(self, action: #selector(digitPressed), for: .touchUpInside)
+        button.setImage(ImageHelper.image("star"), for: .normal)
+        button.tag = tag
+        button.setTitle(String(), for: .normal)
+        return button
+    }
+    @objc
+    func digitPressed(_ sender: UIButton) {
+        rateView.arrangedSubviews.forEach { view in
+            if let button = view as? UIButton {
+                if button.tag > sender.tag {
+                    button.setImage(ImageHelper.image("star"), for: .normal)
+                } else {
+                    button.setImage(ImageHelper.image("star-fill"), for: .normal)
+                }
+            }
+        }
     }
     public func setContainerViewConstraint() {
         containerView.translatesAutoresizingMaskIntoConstraints = false
