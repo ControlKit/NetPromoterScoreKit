@@ -119,15 +119,16 @@ public class NetPromoterScoreView_Star: UIView, NetPromoterScoreViewProtocol {
         setupCorners()
     }
     func addStarToRateView() {
-        for star in 1...config.starType.rawValue {
-            rateView.addArrangedSubview(getStarButton())
+        for (index, star) in (1...config.starType.rawValue).enumerated() {
+            rateView.addArrangedSubview(getStarButton(tag: index))
         }
     }
-    func getStarButton() -> UIButton {
+    func getStarButton(tag: Int) -> UIButton {
         let button = UIButton()
         button.backgroundColor = .clear
 //        button.addTarget(self, action: #selector(openLink), for: .touchUpInside)
-        button.setImage(ImageHelper.image("star-fill"), for: .normal)
+        button.setImage(ImageHelper.image("star"), for: .normal)
+        button.tag = tag
         button.setTitle(String(), for: .normal)
         return button
     }
