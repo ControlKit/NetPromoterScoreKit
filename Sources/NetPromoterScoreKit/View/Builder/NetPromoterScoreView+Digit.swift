@@ -169,7 +169,7 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol {
     }
     
     public func commonInit() {
-        containerView.fixInView(self)
+        contentView.fixInView(self)
     }
     
     public func setup() {
