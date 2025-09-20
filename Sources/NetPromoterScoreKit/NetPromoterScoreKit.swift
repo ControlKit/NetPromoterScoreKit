@@ -18,7 +18,11 @@ public class NetPromoterScoreKit {
                 viewModel: viewModel,
                 config: config
             )
-            netPromoterScoreVC.modalPresentationStyle = modalPresentationStyle
+            if config.viewConfig.style == .star {
+                netPromoterScoreVC.modalPresentationStyle = .overCurrentContext
+            } else {
+                netPromoterScoreVC.modalPresentationStyle = modalPresentationStyle
+            }
             DispatchQueue.main.async {
                 root.present(netPromoterScoreVC, animated: true)
             }
