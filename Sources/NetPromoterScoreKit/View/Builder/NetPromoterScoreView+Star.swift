@@ -68,8 +68,13 @@ public class NetPromoterScoreView_Star: UIView, NetPromoterScoreViewProtocol {
         button.backgroundColor = config.submitButtonBackColor
         button.titleLabel?.textColor = config.submitButtonTitleColor
         button.setTitle(config.submitButtonTitle, for: .normal)
-        button.roundCorners(corners: [.topLeft, .topRight], radius: config.submitButtonRadius)
 //        button.addTarget(self, action: #selector(openLink), for: .touchUpInside)
+//        button.setCurvedView(
+//            cornerRadius: config.submitButtonRadius,
+//            borderWidth: config.submitButtonBorderWidth,
+//            borderColor: config.submitButtonBorderColor
+//        )
+        button.roundedButton(corners: [.topLeft, .topRight])
         button.titleLabel?.font = config.submitButtonFont
         button.setTitleColor(config.submitButtonTitleColor, for: .normal)
         return button
@@ -80,7 +85,11 @@ public class NetPromoterScoreView_Star: UIView, NetPromoterScoreViewProtocol {
         button.backgroundColor = config.cancelButtonBackColor
         button.titleLabel?.textColor = config.cancelButtonTitleColor
         button.setTitle(config.cancelButtonTitle, for: .normal)
-        button.roundCorners(corners: [.bottomLeft, .bottomRight], radius: config.cancelButtonRadius)
+        button.setCurvedView(
+            cornerRadius: config.cancelButtonRadius,
+            borderWidth: config.cancelButtonBorderWidth,
+            borderColor: config.cancelButtonBorderColor
+        )
 //        button.addTarget(self, action: #selector(openLink), for: .touchUpInside)
         button.titleLabel?.font = config.cancelButtonFont
         button.setTitleColor(config.cancelButtonTitleColor, for: .normal)
