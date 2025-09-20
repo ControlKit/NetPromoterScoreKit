@@ -87,8 +87,8 @@ public class NetPromoterScoreView_Star: UIView, NetPromoterScoreViewProtocol {
         button.setTitle(config.cancelButtonTitle, for: .normal)
         button.setCurvedView(
             cornerRadius: .zero,
-            borderWidth: config.submitButtonBorderWidth,
-            borderColor: config.submitButtonBorderColor
+            borderWidth: config.cancelButtonBorderWidth,
+            borderColor: config.cancelButtonBorderColor
         )
 //        button.addTarget(self, action: #selector(openLink), for: .touchUpInside)
         button.titleLabel?.font = config.cancelButtonFont
