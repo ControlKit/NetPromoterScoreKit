@@ -126,12 +126,25 @@ public class NetPromoterScoreView_Star: UIView, NetPromoterScoreViewProtocol {
     func getStarButton(tag: Int) -> UIButton {
         let button = UIButton()
         button.backgroundColor = .clear
-//        button.addTarget(self, action: #selector(openLink), for: .touchUpInside)
+        button.addTarget(self, action: #selector(starPressed), for: .touchUpInside)
         button.setImage(ImageHelper.image("star"), for: .normal)
         button.tag = tag
         button.setTitle(String(), for: .normal)
         return button
     }
+    @objc
+    func starPressed(_ sender: UIButton) {
+        rateView.arrangedSubviews.forEach { view in
+            if let button = view as? UIButton {
+                if button.tag > sender.tag {
+                    button.setImage(ImageHelper.image("star"), for: .normal)
+                } else {
+                    button.setImage(ImageHelper.image("star-fill"), for: .normal)
+                }
+            }
+        }
+    }
+    
     public func setContainerViewConstraint() {
         containerView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint(
