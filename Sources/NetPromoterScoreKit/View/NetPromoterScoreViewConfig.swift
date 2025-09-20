@@ -7,12 +7,17 @@
 
 import Foundation
 import UIKit
+public enum NPSStarsType: Int {
+    case five = 5
+    case ten = 10
+}
 public class NetPromoterScoreViewConfig {
     public init(lang: String) {
         self.lang = lang
     }
     
     public let lang: String
+    public var starType: NPSStarsType = .five
     public var style: NetPromoterScoreViewStyle = .star
     public var contentViewBackColor: UIColor = UIColor(r: 167, g: 167, b: 167, a: 0.8)
     public var containerViewBackColor: UIColor = UIColor(r: 115, g: 3, b: 0, a: 1.0)

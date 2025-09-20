@@ -53,16 +53,19 @@ extension UIView {
     }
     
     func roundCorners(corners: UIRectCorner, radius: CGFloat, borderColor: UIColor, borderWidth: CGFloat) {
-        let path = UIBezierPath(roundedRect: bounds,
-                                byRoundingCorners: corners,
-                                cornerRadii: CGSize(width: radius, height: radius))
+        let path = UIBezierPath(
+            roundedRect: bounds,
+            byRoundingCorners: corners,
+            cornerRadii: CGSize(width: radius, height: radius)
+        )
         let mask = CAShapeLayer()
         mask.path = path.cgPath
-        mask.borderColor = borderColor.cgColor
-        mask.borderWidth = borderWidth
-        layer.borderColor = borderColor.cgColor
-        layer.borderWidth = borderWidth
         layer.mask = mask
+        
+        let border = CALayer()
+        border.backgroundColor = borderColor.cgColor
+        border.borderWidth = borderWidth
+        layer.addSublayer(border)
     }
     
     func addShadow(color: UIColor, radius: CGFloat? = nil, opacity: Float? = nil, offsetY: CGFloat? = nil) {

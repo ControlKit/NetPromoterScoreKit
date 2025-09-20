@@ -55,14 +55,6 @@ public class NetPromoterScoreView_Star: UIView, NetPromoterScoreViewProtocol {
         stackView.spacing = 20
         return stackView
     }()
-    var starButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = .clear
-//        button.addTarget(self, action: #selector(openLink), for: .touchUpInside)
-        button.setImage(ImageHelper.image("star"), for: .normal)
-        button.setTitle(String(), for: .normal)
-        return button
-    }()
     lazy var submitButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = config.submitButtonBackColor
@@ -113,6 +105,7 @@ public class NetPromoterScoreView_Star: UIView, NetPromoterScoreViewProtocol {
         containerView.addSubview(bottomView)
         bottomView.addSubview(questionLabel)
         bottomView.addSubview(rateView)
+        addStarToRateView()
         bottomView.addSubview(submitButton)
         bottomView.addSubview(cancelButton)
         commonInit()
@@ -124,6 +117,19 @@ public class NetPromoterScoreView_Star: UIView, NetPromoterScoreViewProtocol {
         setSubmitButtonConstraint()
         setCancelButtonConstraint()
         setupCorners()
+    }
+    func addStarToRateView() {
+        for star in 1...config.starType.rawValue {
+            rateView.addArrangedSubview(getStarButton())
+        }
+    }
+    func getStarButton() -> UIButton {
+        let button = UIButton()
+        button.backgroundColor = .clear
+//        button.addTarget(self, action: #selector(openLink), for: .touchUpInside)
+        button.setImage(ImageHelper.image("star"), for: .normal)
+        button.setTitle(String(), for: .normal)
+        return button
     }
     public func setContainerViewConstraint() {
         containerView.translatesAutoresizingMaskIntoConstraints = false
