@@ -77,10 +77,6 @@ public class NetPromoterScoreView_Star: UIView, NetPromoterScoreViewProtocol {
         )
         button.titleLabel?.font = config.submitButtonFont
         button.setTitleColor(config.submitButtonTitleColor, for: .normal)
-        DispatchQueue.main.async { [weak self] in
-            guard let self else { return }
-            button.roundCorners(corners: [.topLeft, .topRight], radius: self.config.submitButtonRadius)
-        }
         return button
     }()
     
@@ -94,10 +90,6 @@ public class NetPromoterScoreView_Star: UIView, NetPromoterScoreViewProtocol {
             borderWidth: config.submitButtonBorderWidth,
             borderColor: config.submitButtonBorderColor
         )
-        DispatchQueue.main.async { [weak self] in
-            guard let self else { return }
-            button.roundCorners(corners: [.topLeft, .topRight], radius: self.config.submitButtonRadius)
-        }
 //        button.addTarget(self, action: #selector(openLink), for: .touchUpInside)
         button.titleLabel?.font = config.cancelButtonFont
         button.setTitleColor(config.cancelButtonTitleColor, for: .normal)
@@ -141,6 +133,7 @@ public class NetPromoterScoreView_Star: UIView, NetPromoterScoreViewProtocol {
         setRateViewConstraint()
         setSubmitButtonConstraint()
         setCancelButtonConstraint()
+        setupCorners()
     }
     public func setContainerViewConstraint() {
         containerView.translatesAutoresizingMaskIntoConstraints = false
@@ -348,6 +341,13 @@ public class NetPromoterScoreView_Star: UIView, NetPromoterScoreViewProtocol {
             attribute: .notAnAttribute,
             multiplier: 1,
             constant: 253).isActive = true
+    }
+    public func setupCorners() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            self.submitButton.roundCorners(corners: [.topLeft, .topRight], radius: self.config.submitButtonRadius)
+            self.cancelButton.roundCorners(corners: [.bottomLeft, .bottomRight], radius: self.config.submitButtonRadius)
+        }
     }
 }
 
