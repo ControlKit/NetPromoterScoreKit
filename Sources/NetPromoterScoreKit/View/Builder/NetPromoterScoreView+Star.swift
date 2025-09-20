@@ -68,15 +68,19 @@ public class NetPromoterScoreView_Star: UIView, NetPromoterScoreViewProtocol {
         button.backgroundColor = config.submitButtonBackColor
         button.titleLabel?.textColor = config.submitButtonTitleColor
         button.setTitle(config.submitButtonTitle, for: .normal)
+        
 //        button.addTarget(self, action: #selector(openLink), for: .touchUpInside)
-//        button.setCurvedView(
-//            cornerRadius: config.submitButtonRadius,
-//            borderWidth: config.submitButtonBorderWidth,
-//            borderColor: config.submitButtonBorderColor
-//        )
-        button.roundedButton(corners: [.topLeft, .topRight])
+        button.setCurvedView(
+            cornerRadius: .zero,
+            borderWidth: config.submitButtonBorderWidth,
+            borderColor: config.submitButtonBorderColor
+        )
         button.titleLabel?.font = config.submitButtonFont
         button.setTitleColor(config.submitButtonTitleColor, for: .normal)
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            button.roundCorners(corners: [.topLeft, .topRight], radius: self.config.submitButtonRadius)
+        }
         return button
     }()
     
@@ -86,10 +90,14 @@ public class NetPromoterScoreView_Star: UIView, NetPromoterScoreViewProtocol {
         button.titleLabel?.textColor = config.cancelButtonTitleColor
         button.setTitle(config.cancelButtonTitle, for: .normal)
         button.setCurvedView(
-            cornerRadius: config.cancelButtonRadius,
-            borderWidth: config.cancelButtonBorderWidth,
-            borderColor: config.cancelButtonBorderColor
+            cornerRadius: .zero,
+            borderWidth: config.submitButtonBorderWidth,
+            borderColor: config.submitButtonBorderColor
         )
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            button.roundCorners(corners: [.topLeft, .topRight], radius: self.config.submitButtonRadius)
+        }
 //        button.addTarget(self, action: #selector(openLink), for: .touchUpInside)
         button.titleLabel?.font = config.cancelButtonFont
         button.setTitleColor(config.cancelButtonTitleColor, for: .normal)
