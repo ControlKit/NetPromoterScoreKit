@@ -10,7 +10,7 @@ public class NetPromoterScoreKit {
     
     @MainActor
     public func configure(root: UIViewController,
-                          modalPresentationStyle: UIModalPresentationStyle = .fullScreen,
+                          modalPresentationStyle: UIModalPresentationStyle = .overCurrentContext,
                           config: NetPromoterScoreServiceConfig) async {
         Task {
             let viewModel = DefaultNetPromoterScoreViewModel(serviceConfig: config)
@@ -18,11 +18,7 @@ public class NetPromoterScoreKit {
                 viewModel: viewModel,
                 config: config
             )
-            if config.viewConfig.style == .star {
-                netPromoterScoreVC.modalPresentationStyle = .overCurrentContext
-            } else {
-                netPromoterScoreVC.modalPresentationStyle = modalPresentationStyle
-            }
+            netPromoterScoreVC.modalPresentationStyle = modalPresentationStyle
             DispatchQueue.main.async {
                 root.present(netPromoterScoreVC, animated: true)
             }
