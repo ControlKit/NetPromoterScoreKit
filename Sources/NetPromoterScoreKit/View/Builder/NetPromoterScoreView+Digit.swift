@@ -325,7 +325,7 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol {
             item: questionLabel,
             attribute: .top,
             relatedBy: .equal,
-            toItem: rateView,
+            toItem: gaugeView,
             attribute: .bottom,
             multiplier: 1,
             constant: 28).isActive = true
