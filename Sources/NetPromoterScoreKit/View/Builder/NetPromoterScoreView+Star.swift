@@ -127,7 +127,7 @@ public class NetPromoterScoreView_Star: UIView, NetPromoterScoreViewProtocol {
         let button = UIButton()
         button.backgroundColor = .clear
 //        button.addTarget(self, action: #selector(openLink), for: .touchUpInside)
-        button.setImage(ImageHelper.image("star"), for: .normal)
+        button.setImage(ImageHelper.image("star-fill"), for: .normal)
         button.setTitle(String(), for: .normal)
         return button
     }
