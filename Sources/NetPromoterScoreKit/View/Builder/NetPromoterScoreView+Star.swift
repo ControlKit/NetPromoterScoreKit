@@ -346,7 +346,7 @@ public class NetPromoterScoreView_Star: UIView, NetPromoterScoreViewProtocol {
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
             self.submitButton.roundCorners(corners: [.topLeft, .topRight], radius: self.config.submitButtonRadius)
-            self.cancelButton.roundCorners(corners: [.bottomLeft, .bottomRight], radius: self.config.submitButtonRadius)
+            self.cancelButton.roundCorners(corners: [.bottomLeft, .bottomRight], radius: self.config.cancelButtonRadius)
         }
     }
 }
