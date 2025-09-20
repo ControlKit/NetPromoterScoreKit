@@ -52,12 +52,14 @@ extension UIView {
         self.layer.maskedCorners = corners
     }
     
-    func roundCorners(corners: UIRectCorner, radius: CGFloat) {
+    func roundCorners(corners: UIRectCorner, radius: CGFloat, borderColor: UIColor, borderWidth: CGFloat) {
         let path = UIBezierPath(roundedRect: bounds,
                                 byRoundingCorners: corners,
                                 cornerRadii: CGSize(width: radius, height: radius))
         let mask = CAShapeLayer()
         mask.path = path.cgPath
+        mask.borderColor = borderColor.cgColor
+        mask.borderWidth = borderWidth
         layer.mask = mask
     }
     
