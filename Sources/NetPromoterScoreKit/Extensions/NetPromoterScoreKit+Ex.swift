@@ -60,6 +60,8 @@ extension UIView {
         mask.path = path.cgPath
         mask.borderColor = borderColor.cgColor
         mask.borderWidth = borderWidth
+        layer.borderColor = borderColor.cgColor
+        layer.borderWidth = borderWidth
         layer.mask = mask
     }
     
