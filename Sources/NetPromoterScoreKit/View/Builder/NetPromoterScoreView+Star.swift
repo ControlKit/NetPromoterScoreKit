@@ -103,7 +103,7 @@ public class NetPromoterScoreView_Star: UIView, NetPromoterScoreViewProtocol {
     }
     
     public func commonInit() {
-        containerView.fixInView(self)
+        contentView.fixInView(self)
     }
     
     public func setup() {
