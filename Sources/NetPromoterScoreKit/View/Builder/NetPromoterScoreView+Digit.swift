@@ -53,7 +53,7 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol {
         label.text = config.questionText
         label.textColor = config.questionTitleColor
         label.textAlignment = .left
-        label.numberOfLines = 1
+        label.numberOfLines = 0
         return label
     }()
     
