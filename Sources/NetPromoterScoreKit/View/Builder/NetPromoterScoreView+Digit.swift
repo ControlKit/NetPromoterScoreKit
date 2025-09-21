@@ -203,8 +203,8 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol {
         setCancelButtonConstraint()
     }
     func addDigitsToRateView() {
-        for (index, _) in (1...10).enumerated() {
-            rateView.addArrangedSubview(getDigitButton(tag: index))
+        for i in 1...10 {
+            rateView.addArrangedSubview(getDigitButton(tag: i))
         }
     }
     func getDigitButton(tag: Int) -> UIButton {

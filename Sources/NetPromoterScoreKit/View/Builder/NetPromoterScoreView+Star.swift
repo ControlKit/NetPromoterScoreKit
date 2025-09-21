@@ -119,8 +119,8 @@ public class NetPromoterScoreView_Star: UIView, NetPromoterScoreViewProtocol {
         setupCorners()
     }
     func addStarToRateView() {
-        for (index, star) in (1...5).enumerated() {
-            rateView.addArrangedSubview(getStarButton(tag: index))
+        for i in 1...5 {
+            rateView.addArrangedSubview(getStarButton(tag: i))
         }
     }
     func getStarButton(tag: Int) -> UIButton {
