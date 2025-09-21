@@ -119,7 +119,7 @@ public class NetPromoterScoreView_Star: UIView, NetPromoterScoreViewProtocol {
         setupCorners()
     }
     func addStarToRateView() {
-        for (index, star) in (1...config.starType.rawValue).enumerated() {
+        for (index, star) in (1...5).enumerated() {
             rateView.addArrangedSubview(getStarButton(tag: index))
         }
     }
@@ -375,7 +375,7 @@ public class NetPromoterScoreViewConfig_Star: NetPromoterScoreViewConfig {
     public override init(lang: String) {
         super.init(lang: lang)
         style = .star
-        starType = .ten
+        containerViewBackColor = UIColor(r: 115, g: 3, b: 0, a: 1.0)
         questionFont = UIFont.systemFont(ofSize: 17, weight: .semibold)
         questionText = "Net Promoter Score"
         questionTitleColor = .black

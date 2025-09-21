@@ -183,6 +183,7 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol {
         containerView.addSubview(maxLabel)
         containerView.addSubview(minLabel)
         containerView.addSubview(rateView)
+        addDigitsToRateView()
         containerView.addSubview(descriptionTitleLabel)
         containerView.addSubview(descriptionTextView)
         containerView.addSubview(submitButton)
@@ -202,7 +203,7 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol {
         setCancelButtonConstraint()
     }
     func addDigitsToRateView() {
-        for (index, star) in (1...config.starType.rawValue).enumerated() {
+        for (index, star) in (1...10).enumerated() {
             rateView.addArrangedSubview(getDigitButton(tag: index))
         }
     }
@@ -210,19 +211,39 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol {
         let button = UIButton()
         button.backgroundColor = .clear
         button.addTarget(self, action: #selector(digitPressed), for: .touchUpInside)
-        button.setImage(ImageHelper.image("star"), for: .normal)
+        button.setTitle(String(tag), for: .normal)
         button.tag = tag
-        button.setTitle(String(), for: .normal)
+        button.setCurvedView(
+            cornerRadius: 10,
+            borderWidth: 0.5,
+            borderColor: UIColor(r: 167, g: 167, b: 167)
+        )
         return button
+    }
+    func getButtonBackColor(tag: Int) -> UIColor {
+        switch tag {
+        case 1...2:
+            return UIColor(r: 254, g: 215, b: 170)
+        case 3:
+            return UIColor(r: 248, g: 185, b: 113)
+        case 4...6:
+            return UIColor(r: 251, g: 146, b: 60)
+        case 7:
+            return UIColor(r: 253, g: 124, b: 56)
+        case 8...10:
+            return UIColor(r: 234, g: 88, b: 12)
+        default:
+            return .clear
+        }
     }
     @objc
     func digitPressed(_ sender: UIButton) {
         rateView.arrangedSubviews.forEach { view in
             if let button = view as? UIButton {
                 if button.tag > sender.tag {
-                    button.setImage(ImageHelper.image("star"), for: .normal)
+                    button.backgroundColor = .clear
                 } else {
-                    button.setImage(ImageHelper.image("star-fill"), for: .normal)
+                    button.backgroundColor = getButtonBackColor(tag: button.tag)
                 }
             }
         }
