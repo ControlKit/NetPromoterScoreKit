@@ -82,7 +82,7 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol {
         stackView.axis = .horizontal
         stackView.alignment = .fill
         stackView.distribution = .fillEqually
-        stackView.spacing = 2
+        stackView.spacing = 1
         return stackView
     }()
     lazy var descriptionTitleLabel: UILabel = {
@@ -196,7 +196,7 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol {
     }
     func getDigitButton(tag: Int) -> UIButton {
         let button = UIButton()
-        button.frame = CGRect(x: 0, y: 0, width: 28, height: 32)
+        button.frame = CGRect(x: 0, y: 0, width: 28.17, height: 32)
         button.backgroundColor = .clear
         button.addTarget(self, action: #selector(digitPressed), for: .touchUpInside)
         button.setTitle(String(tag), for: .normal)
@@ -458,7 +458,7 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol {
             toItem: nil,
             attribute: .notAnAttribute,
             multiplier: 1,
-            constant: 320).isActive = true
+            constant: 292).isActive = true
     }
     public func setDescriptionLabelConstraint() {
         descriptionTitleLabel.translatesAutoresizingMaskIntoConstraints = false
