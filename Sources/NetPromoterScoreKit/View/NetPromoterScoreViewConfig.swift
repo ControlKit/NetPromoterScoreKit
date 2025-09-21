@@ -22,6 +22,7 @@ public class NetPromoterScoreViewConfig {
     public var rateViewBackColor: UIColor = .clear
     public var logoImage: UIImage?
     public var gaugeImage: UIImage?
+    public var digitFont = UIFont.systemFont(ofSize: 10, weight: .semibold)
     
     public var headerFont = UIFont.systemFont(ofSize: 18, weight: .bold)
     public var headerText = "Rate the service"

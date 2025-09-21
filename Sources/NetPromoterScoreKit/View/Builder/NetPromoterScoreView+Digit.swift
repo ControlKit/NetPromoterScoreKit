@@ -203,7 +203,7 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol {
         setCancelButtonConstraint()
     }
     func addDigitsToRateView() {
-        for (index, star) in (1...10).enumerated() {
+        for (index, _) in (1...10).enumerated() {
             rateView.addArrangedSubview(getDigitButton(tag: index))
         }
     }
@@ -213,6 +213,8 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol {
         button.backgroundColor = .clear
         button.addTarget(self, action: #selector(digitPressed), for: .touchUpInside)
         button.setTitle(String(tag), for: .normal)
+        button.setTitleColor(UIColor(r: 11, g: 11, b: 11), for: .normal)
+        button.titleLabel?.font = config.digitFont
         button.tag = tag
         button.setCurvedView(
             cornerRadius: 10,
