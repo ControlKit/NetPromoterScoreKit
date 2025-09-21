@@ -81,7 +81,7 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol {
         stackView.backgroundColor = .clear
         stackView.axis = .horizontal
         stackView.alignment = .center
-        stackView.distribution = .fillEqually
+        stackView.distribution = .equalCentering
         stackView.spacing = 1
         return stackView
     }()
