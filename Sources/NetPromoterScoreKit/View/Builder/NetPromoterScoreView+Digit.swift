@@ -82,7 +82,7 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol {
         stackView.axis = .horizontal
         stackView.alignment = .center
         stackView.distribution = .fillEqually
-        stackView.spacing = 20
+        stackView.spacing = 1
         return stackView
     }()
     var digitButton: UIButton {
