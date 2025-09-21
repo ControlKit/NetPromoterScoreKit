@@ -63,7 +63,7 @@ public class NetPromoterScoreViewConfig {
     public var textViewBackColor: UIColor = .clear
     public var textViewRadius: CGFloat = 10.0
     public var textViewBorderWidth: CGFloat = 1
-    public var textViewBorderColor: UIColor = .clear
+    public var textViewBorderColor: UIColor = UIColor(r: 198, g: 198, b: 198)
     
     public var submitButtonFont = UIFont.systemFont(ofSize: 15, weight: .semibold)
     public var submitButtonTitle = "Submit"
