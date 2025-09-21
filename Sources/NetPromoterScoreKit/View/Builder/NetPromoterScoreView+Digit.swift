@@ -80,24 +80,11 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol {
         let stackView = UIStackView()
         stackView.backgroundColor = .clear
         stackView.axis = .horizontal
-        stackView.alignment = .center
-        stackView.distribution = .equalCentering
-        stackView.spacing = 1
+        stackView.alignment = .fill
+        stackView.distribution = .fillEqually
+        stackView.spacing = 2
         return stackView
     }()
-    var digitButton: UIButton {
-        let button = UIButton()
-        button.backgroundColor = .clear
-        button.titleLabel?.font = config.rateButtonFont
-//        button.addTarget(self, action: #selector(openLink), for: .touchUpInside)
-        button.setTitle(String(), for: .normal)
-        button.setCurvedView(
-            cornerRadius: config.rateButtonRadius,
-            borderWidth: config.rateButtonBorderWidth,
-            borderColor: config.rateButtonBackColor
-        )
-        return button
-    }
     lazy var descriptionTitleLabel: UILabel = {
         let label = UILabel()
         label.font = config.descriptionTitleFont
