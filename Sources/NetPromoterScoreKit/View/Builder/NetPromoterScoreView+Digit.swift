@@ -209,6 +209,7 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol {
     }
     func getDigitButton(tag: Int) -> UIButton {
         let button = UIButton()
+        button.frame = CGRect(x: 0, y: 0, width: 28, height: 32)
         button.backgroundColor = .clear
         button.addTarget(self, action: #selector(digitPressed), for: .touchUpInside)
         button.setTitle(String(tag), for: .normal)
