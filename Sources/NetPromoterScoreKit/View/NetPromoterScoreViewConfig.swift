@@ -44,10 +44,12 @@ public class NetPromoterScoreViewConfig {
     public var maxTitleText = "EXTREME LIKELY"
     public var maxTitleColor: UIColor = UIColor(r: 84, g: 84, b: 84, a: 1.0)
     
-    public var descriptionTitleFont = UIFont.systemFont(ofSize: 13, weight: .semibold)
+    public var descriptionTitleFont = UIFont.systemFont(ofSize: 12, weight: .semibold)
     public var descriptionTitleText = "Describe what motivated your review (optional)"
     public var descriptionTitleColor: UIColor = UIColor(r: 11, g: 11, b: 11, a: 1.0)
     
+    public var descriptionTextViewPlaceholderFont = UIFont.systemFont(ofSize: 10, weight: .medium)
+    public var descriptionTextViewPlaceholderText = "Please write your complaint in 500 characters."
     public var descriptionTextViewBorderColor: UIColor = UIColor(r: 198, g: 198, b: 198, a: 1.0)
     public var descriptionTextViewPlaceholderColor: UIColor = UIColor(r: 198, g: 198, b: 198, a: 1.0)
     

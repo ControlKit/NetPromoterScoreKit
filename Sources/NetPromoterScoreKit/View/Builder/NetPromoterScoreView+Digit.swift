@@ -7,7 +7,7 @@
 import Foundation
 import UIKit
 
-public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol {
+public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol, UITextViewDelegate {
     var config: NetPromoterScoreViewConfig
     var viewModel: NetPromoterScoreViewModel
     lazy var contentView: UIView = {
@@ -107,7 +107,16 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol {
             borderWidth: config.textViewBorderWidth,
             borderColor: config.textViewBorderColor
         )
+        textView.delegate = self
         return textView
+    }()
+    lazy var textViewPlaceholderLabel: UILabel = {
+        let label = UILabel()
+        label.text = config.descriptionTextViewPlaceholderText
+        label.textColor = config.descriptionTextViewPlaceholderColor
+        label.font = config.descriptionTextViewPlaceholderFont
+        label.numberOfLines = 0
+        return label
     }()
     
     lazy var submitButton: UIButton = {
@@ -174,6 +183,7 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol {
         addDigitsToRateView()
         containerView.addSubview(descriptionTitleLabel)
         containerView.addSubview(descriptionTextView)
+        descriptionTextView.addSubview(textViewPlaceholderLabel)
         containerView.addSubview(submitButton)
         containerView.addSubview(cancelButton)
         commonInit()
@@ -187,8 +197,10 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol {
         setRateViewConstraint()
         setDescriptionLabelConstraint()
         setTextViewConstraint()
+        setTextViewPlaceholderConstraints()
         setSubmitButtonConstraint()
         setCancelButtonConstraint()
+        updateTextViewPlaceholderVisibility()
     }
     func addDigitsToRateView() {
         for i in 1...10 {
@@ -519,6 +531,43 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol {
             attribute: .notAnAttribute,
             multiplier: 1,
             constant: 100).isActive = true
+    }
+    private func setTextViewPlaceholderConstraints() {
+        textViewPlaceholderLabel.translatesAutoresizingMaskIntoConstraints = false
+        // Position placeholder near the text's starting point
+        let topInset: CGFloat = 8
+        let leadingInset: CGFloat = 6
+        NSLayoutConstraint(
+            item: textViewPlaceholderLabel,
+            attribute: .top,
+            relatedBy: .equal,
+            toItem: descriptionTextView,
+            attribute: .top,
+            multiplier: 1,
+            constant: topInset).isActive = true
+        NSLayoutConstraint(
+            item: textViewPlaceholderLabel,
+            attribute: .leading,
+            relatedBy: .equal,
+            toItem: descriptionTextView,
+            attribute: .leading,
+            multiplier: 1,
+            constant: leadingInset).isActive = true
+        textViewPlaceholderLabel.trailingAnchor.constraint(
+            lessThanOrEqualTo: descriptionTextView.trailingAnchor,
+            constant: -6).isActive = true
+    }
+    private func updateTextViewPlaceholderVisibility() {
+        textViewPlaceholderLabel.isHidden = !(descriptionTextView.text?.isEmpty ?? true)
+    }
+    public func textViewDidChange(_ textView: UITextView) {
+        updateTextViewPlaceholderVisibility()
+    }
+    public func textViewDidBeginEditing(_ textView: UITextView) {
+        updateTextViewPlaceholderVisibility()
+    }
+    public func textViewDidEndEditing(_ textView: UITextView) {
+        updateTextViewPlaceholderVisibility()
     }
     public func setSubmitButtonConstraint() {
         submitButton.translatesAutoresizingMaskIntoConstraints = false
