@@ -6,7 +6,7 @@ public class ABGaugeView: UIView {
     // MARK:- @IBInspectable
     @IBInspectable public var colorCodes: String = "fbd7aa,f7923c,ea580b"
     @IBInspectable public var areas: String = "33.3,33.3,33.3"
-    @IBInspectable public var arcAngle: CGFloat = 1.6
+    @IBInspectable public var arcAngle: CGFloat = 1.8
     
     @IBInspectable public var needleColor: UIColor = .black
     @IBInspectable public var needleValue: CGFloat = 0 {
@@ -206,7 +206,7 @@ public class ABGaugeView: UIView {
         let theD = (radians - thisRadians)/2
         firstAngle += theD
         let needleValue = radian(for: self.needleValue) + firstAngle
-        animate(triangleLayer: triangleLayer, shadowLayer: shadowLayer, fromValue: 0, toValue: needleValue*1.05, duration: 0.5) {
+        animate(triangleLayer: triangleLayer, shadowLayer: shadowLayer, fromValue: .pi/2, toValue: needleValue*1.05, duration: 0.5) {
             self.animate(triangleLayer: triangleLayer, shadowLayer: shadowLayer, fromValue: needleValue*1.05, toValue: needleValue*0.95, duration: 0.4, callBack: {
                 self.animate(triangleLayer: triangleLayer, shadowLayer: shadowLayer, fromValue: needleValue*0.95, toValue: needleValue, duration: 0.6, callBack: {})
             })

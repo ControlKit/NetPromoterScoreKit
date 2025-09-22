@@ -45,6 +45,8 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol {
         let gaugeView = ABGaugeView()
         gaugeView.backgroundColor = config.gaugeViewBackColor
         gaugeView.applyShadow = false
+        gaugeView.isRoundCap = false
+        gaugeView.firstAngle = 90
         return gaugeView
     }()
     lazy var questionLabel: UILabel = {
@@ -355,7 +357,7 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol {
             toItem: nil,
             attribute: .notAnAttribute,
             multiplier: 1,
-            constant: 50).isActive = true
+            constant: 100).isActive = true
     }
     public func setQuestionLabelConstraint() {
         questionLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -366,7 +368,7 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol {
             toItem: gaugeView,
             attribute: .bottom,
             multiplier: 1,
-            constant: 28).isActive = true
+            constant: -20).isActive = true
         questionLabel.leadingAnchor.constraint(
             equalTo: containerView.leadingAnchor,
             constant: 30).isActive = true
