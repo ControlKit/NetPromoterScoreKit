@@ -28,7 +28,7 @@ public class NetPromoterScoreViewConfig {
     public var headerText = "Rate the service"
     public var headerColor: UIColor = .black
     
-    public var titleFont = UIFont.systemFont(ofSize: 17, weight: .semibold)
+    public var titleFont = UIFont.systemFont(ofSize: 16, weight: .semibold)
     public var titleText = "Your feedback will  help us get better!"
     public var titleColor: UIColor = .black
     
