@@ -348,7 +348,7 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol {
             toItem: nil,
             attribute: .notAnAttribute,
             multiplier: 1,
-            constant: 90).isActive = true
+            constant: 99).isActive = true
         NSLayoutConstraint(
             item: gaugeView,
             attribute: .height,
@@ -356,7 +356,7 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol {
             toItem: nil,
             attribute: .notAnAttribute,
             multiplier: 1,
-            constant: 110).isActive = true
+            constant: 99).isActive = true
     }
     public func setQuestionLabelConstraint() {
         questionLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -373,7 +373,7 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol {
             constant: 30).isActive = true
         questionLabel.trailingAnchor.constraint(
             equalTo: containerView.trailingAnchor,
-            constant: -30).isActive = true
+            constant: -20).isActive = true
         NSLayoutConstraint(
             item: questionLabel,
             attribute: .height,
