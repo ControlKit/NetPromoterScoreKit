@@ -44,7 +44,7 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol {
     lazy var gaugeView: ABGaugeView = {
         let gaugeView = ABGaugeView()
         gaugeView.backgroundColor = config.gaugeViewBackColor
-        gaugeView.needleValue = 0
+        gaugeView.applyShadow = false
         return gaugeView
     }()
     lazy var questionLabel: UILabel = {

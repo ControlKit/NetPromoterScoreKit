@@ -5,10 +5,10 @@ import UIKit
 public class ABGaugeView: UIView {
     // MARK:- @IBInspectable
     @IBInspectable public var colorCodes: String = "fbd7aa,f7923c,ea580b"
-    @IBInspectable public var areas: String = "20,20,20"
+    @IBInspectable public var areas: String = "33.3,33.3,33.3"
     @IBInspectable public var arcAngle: CGFloat = 1.6
     
-    @IBInspectable public var needleColor: UIColor = UIColor(red: 18/255.0, green: 112/255.0, blue: 178/255.0, alpha: 1.0)
+    @IBInspectable public var needleColor: UIColor = .black
     @IBInspectable public var needleValue: CGFloat = 0 {
         didSet {
             setNeedsDisplay()
@@ -170,7 +170,12 @@ public class ABGaugeView: UIView {
         
         // 2
         triangleLayer.frame = bounds
-        shadowLayer.frame = CGRect(x: bounds.origin.x, y: bounds.origin.y + 5, width: bounds.width, height: bounds.height)
+        shadowLayer.frame = CGRect(
+            x: bounds.origin.x,
+            y: bounds.origin.y + 5,
+            width: bounds.width,
+            height: bounds.height
+        )
         
         // 3
         let needlePath = UIBezierPath()
