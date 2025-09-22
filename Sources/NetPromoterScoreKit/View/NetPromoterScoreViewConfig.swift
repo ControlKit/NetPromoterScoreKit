@@ -17,7 +17,7 @@ public class NetPromoterScoreViewConfig {
     public var contentViewBackColor: UIColor = UIColor(r: 167, g: 167, b: 167, a: 0.8)
     public var containerViewBackColor: UIColor = .white
     public var containerViewRadius: CGFloat = 20.0
-    public var gaugeViewBackColor: UIColor = UIColor(r: 115, g: 3, b: 0, a: 1.0)
+    public var gaugeViewBackColor: UIColor = .clear
     public var bottomViewBackColor: UIColor = UIColor(r: 245, g: 254, b: 255, a: 1.0)
     public var rateViewBackColor: UIColor = .clear
     public var logoImage: UIImage?

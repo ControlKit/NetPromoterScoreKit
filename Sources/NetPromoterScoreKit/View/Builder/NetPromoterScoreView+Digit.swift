@@ -531,7 +531,7 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol {
         NSLayoutConstraint(
             item: submitButton,
             attribute: .top,
-            relatedBy: .equal,
+            relatedBy: .greaterThanOrEqual,
             toItem: descriptionTextView,
             attribute: .bottom,
             multiplier: 1,
@@ -571,6 +571,14 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol {
             attribute: .bottom,
             multiplier: 1,
             constant: 15).isActive = true
+        NSLayoutConstraint(
+            item: cancelButton,
+            attribute: .bottom,
+            relatedBy: .equal,
+            toItem: containerView,
+            attribute: .bottom,
+            multiplier: 1,
+            constant: -50).isActive = true
         NSLayoutConstraint(
             item: cancelButton,
             attribute: .height,

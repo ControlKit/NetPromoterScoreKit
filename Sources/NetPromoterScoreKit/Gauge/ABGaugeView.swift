@@ -4,7 +4,7 @@ import UIKit
 @IBDesignable
 public class ABGaugeView: UIView {
     // MARK:- @IBInspectable
-    @IBInspectable public var colorCodes: String = "929918,C8CC86,66581A,3A4A73,185D99"
+    @IBInspectable public var colorCodes: String = "fbd7aa,f7923c,ea580b"
     @IBInspectable public var areas: String = "20,20,20,20,20"
     @IBInspectable public var arcAngle: CGFloat = 2.4
     
