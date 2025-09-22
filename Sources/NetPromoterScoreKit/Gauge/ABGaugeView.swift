@@ -5,8 +5,8 @@ import UIKit
 public class ABGaugeView: UIView {
     // MARK:- @IBInspectable
     @IBInspectable public var colorCodes: String = "fbd7aa,f7923c,ea580b"
-    @IBInspectable public var areas: String = "20,20,20,20,20"
-    @IBInspectable public var arcAngle: CGFloat = 2.4
+    @IBInspectable public var areas: String = "20,20,20"
+    @IBInspectable public var arcAngle: CGFloat = 1.6
     
     @IBInspectable public var needleColor: UIColor = UIColor(red: 18/255.0, green: 112/255.0, blue: 178/255.0, alpha: 1.0)
     @IBInspectable public var needleValue: CGFloat = 0 {

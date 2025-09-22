@@ -44,7 +44,7 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol {
     lazy var gaugeView: ABGaugeView = {
         let gaugeView = ABGaugeView()
         gaugeView.backgroundColor = config.gaugeViewBackColor
-        gaugeView.needleValue = 10
+        gaugeView.needleValue = 0
         return gaugeView
     }()
     lazy var questionLabel: UILabel = {
@@ -230,6 +230,7 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol {
     func digitPressed(_ sender: UIButton) {
         rateView.arrangedSubviews.forEach { view in
             if let button = view as? UIButton {
+                gaugeView.needleValue = CGFloat(sender.tag) * 10
                 if button.tag > sender.tag {
                     button.backgroundColor = .clear
                 } else {
