@@ -181,7 +181,7 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol {
         setContainerViewConstraint()
         setHeaderLabelConstraint()
         setTitleLabelConstraint()
-        setGageViewConstraint()
+        setGaugeViewConstraint()
         setQuestionLabelConstraint()
         setMinLabelConstraint()
         setMaxLabelConstraint()
@@ -324,7 +324,7 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol {
             multiplier: 1,
             constant: 30).isActive = true
     }
-    public func setGageViewConstraint() {
+    public func setGaugeViewConstraint() {
         gaugeView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint(
             item: gaugeView,
@@ -349,7 +349,7 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol {
             toItem: nil,
             attribute: .notAnAttribute,
             multiplier: 1,
-            constant: 92).isActive = true
+            constant: 110).isActive = true
         NSLayoutConstraint(
             item: gaugeView,
             attribute: .height,
