@@ -46,7 +46,6 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol {
         gaugeView.backgroundColor = config.gaugeViewBackColor
         gaugeView.applyShadow = false
         gaugeView.isRoundCap = false
-        gaugeView.firstAngle = 90
         return gaugeView
     }()
     lazy var questionLabel: UILabel = {
