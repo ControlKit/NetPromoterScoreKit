@@ -24,10 +24,10 @@ public class NetPromoterScoreView_Star: UIView, NetPromoterScoreViewProtocol {
     }()
     lazy var logoImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = config.logoImage != nil ? config.logoImage : ImageHelper.image("logo")
+        imageView.image = config.logoImage != nil ? config.logoImage : ImageHelper.image("sepanta-logo")
         return imageView
     }()
-    lazy var smallGageIcon: UIImageView = {
+    lazy var smallGaugeIcon: UIImageView = {
         let imageView = UIImageView()
         imageView.image = config.gaugeImage != nil ? config.gaugeImage : ImageHelper.image("score-outline")
         return imageView
