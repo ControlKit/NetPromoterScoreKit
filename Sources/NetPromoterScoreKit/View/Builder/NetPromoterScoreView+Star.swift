@@ -43,7 +43,7 @@ public class NetPromoterScoreView_Star: UIView, NetPromoterScoreViewProtocol {
         label.text = config.questionText
         label.textColor = config.questionTitleColor
         label.textAlignment = .center
-        label.numberOfLines = 1
+        label.numberOfLines = 0
         return label
     }()
     lazy var rateView: UIStackView = {
