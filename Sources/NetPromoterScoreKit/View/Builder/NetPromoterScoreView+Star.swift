@@ -362,7 +362,7 @@ public class NetPromoterScoreView_Star: UIView, NetPromoterScoreViewProtocol {
                 borderWidth: self.config.submitButtonBorderWidth
             )
             self.cancelButton.roundCorners(
-                corners: [.bottomLeft, .bottomRight],
+                corners:  [.layerMinXMaxYCorner, .layerMaxXMaxYCorner],
                 radius: self.config.cancelButtonRadius,
                 borderColor: self.config.cancelButtonBorderColor,
                 borderWidth: self.config.cancelButtonBorderWidth
