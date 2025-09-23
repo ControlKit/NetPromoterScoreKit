@@ -50,8 +50,8 @@ extension UIView {
     func roundCorners(corners: CACornerMask, radius: CGFloat, borderColor: UIColor, borderWidth: CGFloat) {
         self.layer.cornerRadius = radius
         self.layer.maskedCorners = corners
-        self.layer.borderColor = UIColor.clear.cgColor
-        self.layer.borderWidth = 0
+        self.layer.borderColor = borderColor.cgColor
+        self.layer.borderWidth = borderWidth
         self.layer.masksToBounds = true
     }
     
