@@ -42,7 +42,7 @@ public class NetPromoterScoreView_Star: UIView, NetPromoterScoreViewProtocol {
         label.font = config.questionFont
         label.text = config.questionText
         label.textColor = config.questionTitleColor
-        label.textAlignment = .left
+        label.textAlignment = .center
         label.numberOfLines = 1
         return label
     }()
@@ -377,7 +377,7 @@ public class NetPromoterScoreViewConfig_Star: NetPromoterScoreViewConfig {
         style = .star
         containerViewBackColor = UIColor(r: 115, g: 3, b: 0, a: 1.0)
         questionFont = UIFont.systemFont(ofSize: 17, weight: .semibold)
-        questionText = "Net Promoter Score"
+        questionText = "How do you enjoy this app? Tap a star to rate it on the App Store."
         questionTitleColor = .black
         
         submitButtonFont = UIFont.systemFont(ofSize: 15, weight: .semibold)
