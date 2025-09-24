@@ -22,8 +22,9 @@ public class NetPromoterScoreView_Star: UIView, NetPromoterScoreViewProtocol {
         contentView.setCurvedView(cornerRadius: config.containerViewRadius)
         return contentView
     }()
-    lazy var hillView: WhiteHillView = {
-        let hillView = WhiteHillView()
+    lazy var hillView: TopHillView = {
+        let hillView = TopHillView()
+        hillView.fillColor = config.bottomViewBackColor
         hillView.backgroundColor = .clear
         return hillView
     }()
@@ -490,49 +491,5 @@ class ImageHelper {
         return UIImage(named: name,
                        in: resolvedBundle,
                        compatibleWith: nil)
-    }
-}
-
-class WhiteHillView: UIView {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        backgroundColor = .clear
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        backgroundColor = .clear
-    }
-    
-    override func draw(_ rect: CGRect) {
-        let path = UIBezierPath()
-        
-        // Start at bottom-left
-        path.move(to: CGPoint(x: 0, y: rect.height))
-        
-        // Left side up
-        path.addLine(to: CGPoint(x: 0, y: 60))
-        
-        // ---- Top hill (sine bump upward) ----
-        let hillHeight: CGFloat = 50
-        let baseY: CGFloat = 60
-        let steps = 60
-        
-        for i in 0...steps {
-            let progress = CGFloat(i) / CGFloat(steps) // 0 → 1
-            let x = progress * rect.width
-            let y = baseY - hillHeight * sin(progress * .pi) // upward bump
-            path.addLine(to: CGPoint(x: x, y: y))
-        }
-        
-        // Right side down
-        path.addLine(to: CGPoint(x: rect.width, y: rect.height))
-        
-        // Close path
-        path.close()
-        
-        // Fill with white
-        UIColor.white.setFill()
-        path.fill()
     }
 }
