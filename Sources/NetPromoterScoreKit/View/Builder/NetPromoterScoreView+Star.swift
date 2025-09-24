@@ -232,7 +232,7 @@ public class NetPromoterScoreView_Star: UIView, NetPromoterScoreViewProtocol {
             toItem: containerView,
             attribute: .top,
             multiplier: 1,
-            constant: 90).isActive = true
+            constant: 101).isActive = true
         NSLayoutConstraint(
             item: hillView,
             attribute: .height,
@@ -248,7 +248,7 @@ public class NetPromoterScoreView_Star: UIView, NetPromoterScoreViewProtocol {
             toItem: nil,
             attribute: .notAnAttribute,
             multiplier: 1,
-            constant: 100).isActive = true
+            constant: 70).isActive = true
     }
     public func setSmaillGaugeIconConstraint() {
         smallGaugeIcon.translatesAutoresizingMaskIntoConstraints = false
@@ -267,7 +267,7 @@ public class NetPromoterScoreView_Star: UIView, NetPromoterScoreViewProtocol {
             toItem: containerView,
             attribute: .top,
             multiplier: 1,
-            constant: 105).isActive = true
+            constant: 101).isActive = true
         NSLayoutConstraint(
             item: smallGaugeIcon,
             attribute: .height,
