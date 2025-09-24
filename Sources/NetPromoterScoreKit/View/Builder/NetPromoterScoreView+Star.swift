@@ -118,6 +118,8 @@ public class NetPromoterScoreView_Star: UIView, NetPromoterScoreViewProtocol {
         commonInit()
         setContainerViewConstraint()
         setLogoImageViewConstraint()
+        setHillViewConstraint()
+        setSmaillGaugeIconConstraint()
         setBottomViewConstraint()
         setQuestionLabelConstraint()
         setRateViewConstraint()
