@@ -266,7 +266,7 @@ public class NetPromoterScoreView_Star: UIView, NetPromoterScoreViewProtocol {
             toItem: containerView,
             attribute: .top,
             multiplier: 1,
-            constant: 95).isActive = true
+            constant: 105).isActive = true
         NSLayoutConstraint(
             item: smallGaugeIcon,
             attribute: .height,
@@ -274,7 +274,7 @@ public class NetPromoterScoreView_Star: UIView, NetPromoterScoreViewProtocol {
             toItem: nil,
             attribute: .notAnAttribute,
             multiplier: 1,
-            constant: 17).isActive = true
+            constant: 30).isActive = true
         NSLayoutConstraint(
             item: smallGaugeIcon,
             attribute: .width,
@@ -282,7 +282,7 @@ public class NetPromoterScoreView_Star: UIView, NetPromoterScoreViewProtocol {
             toItem: nil,
             attribute: .notAnAttribute,
             multiplier: 1,
-            constant: 18).isActive = true
+            constant: 30).isActive = true
     }
     public func setBottomViewConstraint() {
         bottomView.translatesAutoresizingMaskIntoConstraints = false
