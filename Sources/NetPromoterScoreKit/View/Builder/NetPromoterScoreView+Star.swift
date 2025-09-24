@@ -22,6 +22,11 @@ public class NetPromoterScoreView_Star: UIView, NetPromoterScoreViewProtocol {
         contentView.setCurvedView(cornerRadius: config.containerViewRadius)
         return contentView
     }()
+    lazy var hillView: WhiteHillView = {
+        let hillView = WhiteHillView()
+        hillView.backgroundColor = .clear
+        return hillView
+    }()
     lazy var logoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = config.logoImage != nil ? config.logoImage : ImageHelper.image("sepanta-logo")
@@ -102,6 +107,8 @@ public class NetPromoterScoreView_Star: UIView, NetPromoterScoreViewProtocol {
         contentView.fixInView(self)
         contentView.addSubview(containerView)
         containerView.addSubview(logoImageView)
+        containerView.addSubview(hillView)
+        containerView.addSubview(smallGaugeIcon)
         containerView.addSubview(bottomView)
         bottomView.addSubview(questionLabel)
         bottomView.addSubview(rateView)
@@ -204,6 +211,76 @@ public class NetPromoterScoreView_Star: UIView, NetPromoterScoreViewProtocol {
             attribute: .notAnAttribute,
             multiplier: 1,
             constant: 56).isActive = true
+    }
+    public func setHillViewConstraint() {
+        hillView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint(
+            item: hillView,
+            attribute: .centerX,
+            relatedBy: .equal,
+            toItem: containerView,
+            attribute: .centerX,
+            multiplier: 1,
+            constant: 0).isActive = true
+        NSLayoutConstraint(
+            item: hillView,
+            attribute: .top,
+            relatedBy: .equal,
+            toItem: containerView,
+            attribute: .top,
+            multiplier: 1,
+            constant: 90).isActive = true
+        NSLayoutConstraint(
+            item: hillView,
+            attribute: .height,
+            relatedBy: .equal,
+            toItem: nil,
+            attribute: .notAnAttribute,
+            multiplier: 1,
+            constant: 30).isActive = true
+        NSLayoutConstraint(
+            item: hillView,
+            attribute: .width,
+            relatedBy: .equal,
+            toItem: nil,
+            attribute: .notAnAttribute,
+            multiplier: 1,
+            constant: 100).isActive = true
+    }
+    public func setSmaillGaugeIconConstraint() {
+        smallGaugeIcon.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint(
+            item: smallGaugeIcon,
+            attribute: .centerX,
+            relatedBy: .equal,
+            toItem: containerView,
+            attribute: .centerX,
+            multiplier: 1,
+            constant: 0).isActive = true
+        NSLayoutConstraint(
+            item: smallGaugeIcon,
+            attribute: .top,
+            relatedBy: .equal,
+            toItem: containerView,
+            attribute: .top,
+            multiplier: 1,
+            constant: 95).isActive = true
+        NSLayoutConstraint(
+            item: smallGaugeIcon,
+            attribute: .height,
+            relatedBy: .equal,
+            toItem: nil,
+            attribute: .notAnAttribute,
+            multiplier: 1,
+            constant: 17).isActive = true
+        NSLayoutConstraint(
+            item: smallGaugeIcon,
+            attribute: .width,
+            relatedBy: .equal,
+            toItem: nil,
+            attribute: .notAnAttribute,
+            multiplier: 1,
+            constant: 18).isActive = true
     }
     public func setBottomViewConstraint() {
         bottomView.translatesAutoresizingMaskIntoConstraints = false
@@ -411,5 +488,49 @@ class ImageHelper {
         return UIImage(named: name,
                        in: resolvedBundle,
                        compatibleWith: nil)
+    }
+}
+
+class WhiteHillView: UIView {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        backgroundColor = .clear
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        backgroundColor = .clear
+    }
+    
+    override func draw(_ rect: CGRect) {
+        let path = UIBezierPath()
+        
+        // Start at bottom-left
+        path.move(to: CGPoint(x: 0, y: rect.height))
+        
+        // Left side up
+        path.addLine(to: CGPoint(x: 0, y: 60))
+        
+        // ---- Top hill (sine bump upward) ----
+        let hillHeight: CGFloat = 50
+        let baseY: CGFloat = 60
+        let steps = 60
+        
+        for i in 0...steps {
+            let progress = CGFloat(i) / CGFloat(steps) // 0 → 1
+            let x = progress * rect.width
+            let y = baseY - hillHeight * sin(progress * .pi) // upward bump
+            path.addLine(to: CGPoint(x: x, y: y))
+        }
+        
+        // Right side down
+        path.addLine(to: CGPoint(x: rect.width, y: rect.height))
+        
+        // Close path
+        path.close()
+        
+        // Fill with white
+        UIColor.white.setFill()
+        path.fill()
     }
 }
