@@ -18,18 +18,20 @@ public class NetPromoterScoreService: NetPromoterScoreServiceProtocol {
                 return NetPromoterScoreResponse()
             }
             var req = URLRequest(url: url)
-            req.allHTTPHeaderFields = request.dictionary
+            req.allHTTPHeaderFields = request.headers
             req.setValue(
                 "application/json",
                 forHTTPHeaderField: "Content-Type"
             )
+            req.httpMethod = "POST"
+            req.httpBody = try JSONEncoder().encode(request.params)
             let (data, res) = try await URLSession.shared.data(for: req)
             if (res as? HTTPURLResponse)?.statusCode == 204 {
                 return nil
             }
-            if let NetPromoterScoreResponse = try? JSONDecoder().decode(NetPromoterScoreResponse.self, from: data) {
-                print(NetPromoterScoreResponse)
-                return NetPromoterScoreResponse
+            if let response = try? JSONDecoder().decode(NetPromoterScoreResponse.self, from: data) {
+                print(response)
+                return response
             } else {
                 print("Invalid Response")
                 return nil

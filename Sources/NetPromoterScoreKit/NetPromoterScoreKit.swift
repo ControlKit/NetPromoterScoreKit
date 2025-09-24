@@ -4,6 +4,7 @@ import Foundation
 import UIKit
 import Combine
 
+public let netPromoterScoreKit_Version: String = "1.0.0"
 public class NetPromoterScoreKit {
     public init() {
     }
