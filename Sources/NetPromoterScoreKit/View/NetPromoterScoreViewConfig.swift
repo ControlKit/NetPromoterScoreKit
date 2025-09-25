@@ -8,11 +8,7 @@
 import Foundation
 import UIKit
 public class NetPromoterScoreViewConfig {
-    public init(lang: String) {
-        self.lang = lang
-    }
-    
-    public let lang: String
+    public init() {}
     public var style: NetPromoterScoreViewStyle = .star
     public var contentViewBackColor: UIColor = UIColor(r: 167, g: 167, b: 167, a: 0.8)
     public var containerViewBackColor: UIColor = .white

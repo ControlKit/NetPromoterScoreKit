@@ -7,12 +7,12 @@
 
 import Foundation
 public protocol NetPromoterScoreServiceProtocol {
-    func getNetPromoterScore(request: NetPromoterScoreRequest) async throws -> NetPromoterScoreResponse?
+    func setScore(request: NetPromoterScoreRequest) async throws -> NetPromoterScoreResponse?
 }
 
 public class NetPromoterScoreService: NetPromoterScoreServiceProtocol {
     public init() {}
-    public func getNetPromoterScore(request: NetPromoterScoreRequest) async throws -> NetPromoterScoreResponse? {
+    public func setScore(request: NetPromoterScoreRequest) async throws -> NetPromoterScoreResponse? {
         do {
             guard let url = URL(string: request.route) else {
                 return NetPromoterScoreResponse()

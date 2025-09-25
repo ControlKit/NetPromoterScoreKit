@@ -11,6 +11,7 @@ import UIKit
 public class NetPromoterScoreView_Star: UIView, NetPromoterScoreViewProtocol {
     var config: NetPromoterScoreViewConfig
     var viewModel: NetPromoterScoreViewModel
+    public var delegate: NetPromoterScoreDelegate?
     lazy var contentView: UIView = {
         let contentView = UIView()
         contentView.backgroundColor = config.contentViewBackColor
@@ -66,8 +67,7 @@ public class NetPromoterScoreView_Star: UIView, NetPromoterScoreViewProtocol {
         button.backgroundColor = config.submitButtonBackColor
         button.titleLabel?.textColor = config.submitButtonTitleColor
         button.setTitle(config.submitButtonTitle, for: .normal)
-        
-//        button.addTarget(self, action: #selector(openLink), for: .touchUpInside)
+        button.addTarget(self, action: #selector(submitButtonTapped), for: .touchUpInside)
         button.titleLabel?.font = config.submitButtonFont
         button.setTitleColor(config.submitButtonTitleColor, for: .normal)
         return button
@@ -78,7 +78,7 @@ public class NetPromoterScoreView_Star: UIView, NetPromoterScoreViewProtocol {
         button.backgroundColor = config.cancelButtonBackColor
         button.titleLabel?.textColor = config.cancelButtonTitleColor
         button.setTitle(config.cancelButtonTitle, for: .normal)
-//        button.addTarget(self, action: #selector(openLink), for: .touchUpInside)
+        button.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
         button.titleLabel?.font = config.cancelButtonFont
         button.setTitleColor(config.cancelButtonTitleColor, for: .normal)
         return button
@@ -144,6 +144,7 @@ public class NetPromoterScoreView_Star: UIView, NetPromoterScoreViewProtocol {
     }
     @objc
     func starPressed(_ sender: UIButton) {
+        viewModel.score = sender.tag
         rateView.arrangedSubviews.forEach { view in
             if let button = view as? UIButton {
                 if button.tag > sender.tag {
@@ -449,11 +450,24 @@ public class NetPromoterScoreView_Star: UIView, NetPromoterScoreViewProtocol {
             )
         }
     }
+    @objc
+    func addScore(_ sender: UIButton) {
+        viewModel.score = sender.tag
+    }
+    
+    @objc
+    func submitButtonTapped() {
+        delegate?.submit(description: String())
+    }
+    @objc
+    func cancelButtonTapped() {
+        delegate?.cancel()
+    }
 }
 
 public class NetPromoterScoreViewConfig_Star: NetPromoterScoreViewConfig {
-    public override init(lang: String) {
-        super.init(lang: lang)
+    public override init() {
+        super.init()
         style = .star
         containerViewBackColor = UIColor(r: 115, g: 3, b: 0, a: 1.0)
         questionFont = UIFont.systemFont(ofSize: 17, weight: .semibold)

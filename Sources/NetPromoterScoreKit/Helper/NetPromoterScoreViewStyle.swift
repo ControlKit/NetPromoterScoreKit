@@ -23,12 +23,12 @@ public enum NetPromoterScoreViewStyle {
         }
     }
     
-    public static func getViewConfigWithStyle(style: NetPromoterScoreViewStyle, lang: String) -> NetPromoterScoreViewConfig {
+    public static func getViewConfigWithStyle(style: NetPromoterScoreViewStyle) -> NetPromoterScoreViewConfig {
         switch style {
         case .star:
-            NetPromoterScoreViewConfig_Star(lang: lang)
+            NetPromoterScoreViewConfig_Star()
         case .digit:
-            NetPromoterScoreViewConfig_Digit(lang: lang)
+            NetPromoterScoreViewConfig_Digit()
         }
     }
 }

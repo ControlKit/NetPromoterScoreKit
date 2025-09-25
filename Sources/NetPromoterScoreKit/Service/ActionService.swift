@@ -18,18 +18,21 @@ public class ActionService: ActionServiceProtocol {
                 return ActionResponse()
             }
             var req = URLRequest(url: url)
-            req.allHTTPHeaderFields = request.dictionary
+            req.allHTTPHeaderFields = request.headers
             req.setValue(
                 "application/json",
                 forHTTPHeaderField: "Content-Type"
             )
             let (data, res) = try await URLSession.shared.data(for: req)
             if (res as? HTTPURLResponse)?.statusCode == 204 {
+                print("204")
                 return nil
             }
-            if let NetPromoterScoreResponse = try? JSONDecoder().decode(ActionResponse.self, from: data) {
-                print(NetPromoterScoreResponse)
-                return NetPromoterScoreResponse
+            req.httpMethod = "POST"
+            req.httpBody = try JSONEncoder().encode(request.params)
+            if let AgreementResponse = try? JSONDecoder().decode(ActionResponse.self, from: data) {
+                print(AgreementResponse)
+                return AgreementResponse
             } else {
                 print("Invalid Response")
                 return nil

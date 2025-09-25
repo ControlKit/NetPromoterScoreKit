@@ -7,28 +7,26 @@
 import Foundation
 import UIKit
 
-public protocol NetPromoterScoreViewModel {
+public protocol NetPromoterScoreViewModel: NetPromoterScoreable, NPSActionable {
     var netPromoterScoreService: NetPromoterScoreServiceProtocol { get set }
+    var actionService: ActionServiceProtocol { get set }
     var serviceConfig: NetPromoterScoreServiceConfig { get set }
     var response: NetPromoterScoreResponse? { get set }
-    var request: NetPromoterScoreRequest { get }
+    var score: Int { get set }
 }
 
-public final class DefaultNetPromoterScoreViewModel: NetPromoterScoreViewModel, NetPromoterScoreable {
+public final class DefaultNetPromoterScoreViewModel: NetPromoterScoreViewModel {
     public var netPromoterScoreService: NetPromoterScoreServiceProtocol
     public var serviceConfig: NetPromoterScoreServiceConfig
+    public var actionService: ActionServiceProtocol
     public var response: NetPromoterScoreResponse?
-    
+    public var score: Int = 0
     public init(serviceConfig: NetPromoterScoreServiceConfig,
-                netPromoterScoreService: NetPromoterScoreServiceProtocol = NetPromoterScoreService()
+                netPromoterScoreService: NetPromoterScoreServiceProtocol = NetPromoterScoreService(),
+                actionService: ActionServiceProtocol = ActionService()
     ) {
         self.netPromoterScoreService = netPromoterScoreService
+        self.actionService = actionService
         self.serviceConfig = serviceConfig
-    }
-    
-    public var request: NetPromoterScoreRequest {
-        return NetPromoterScoreRequest(appId: serviceConfig.appId,
-                                       route: serviceConfig.route,
-                                       sdkVersion: serviceConfig.sdkVersion)
     }
 }

@@ -9,11 +9,17 @@ import Foundation
 
 public protocol NetPromoterScoreable: AnyObject {
     var netPromoterScoreService: NetPromoterScoreServiceProtocol { get set }
-    func getNetPromoterScore(request: NetPromoterScoreRequest) async throws -> NetPromoterScoreResponse?
+    func setScore(viewRequest: NetPromoterScoreViewRequest) async throws -> NetPromoterScoreResponse?
 }
 
-extension NetPromoterScoreable {
-    public func getNetPromoterScore(request: NetPromoterScoreRequest) async throws -> NetPromoterScoreResponse? {
-        return try await netPromoterScoreService.getNetPromoterScore(request: request)
+extension NetPromoterScoreable where Self: NetPromoterScoreViewModel {
+    public func setScore(viewRequest: NetPromoterScoreViewRequest) async throws -> NetPromoterScoreResponse? {
+        let request = NetPromoterScoreRequest(
+            appId: serviceConfig.appId,
+            name: serviceConfig.name,
+            score: String(score),
+            viewRequest: viewRequest
+        )
+        return try await netPromoterScoreService.setScore(request: request)
     }
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NetPromoterScoreViewController: UIViewController {
+class NetPromoterScoreViewController: UIViewController, NetPromoterScoreDelegate {
     var viewModel: NetPromoterScoreViewModel
     let config: NetPromoterScoreServiceConfig
 
@@ -23,12 +23,23 @@ class NetPromoterScoreViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let NetPromoterScoreView = NetPromoterScoreViewStyle.make(viewModel: viewModel,
+        let netPromoterScoreView = NetPromoterScoreViewStyle.make(viewModel: viewModel,
                                                     config: config.viewConfig)
-        view.addSubview(NetPromoterScoreView)
-        NetPromoterScoreView.fixInView(view)
+        view.addSubview(netPromoterScoreView)
+        netPromoterScoreView.fixInView(view)
+        netPromoterScoreView.delegate = self
+        viewModel.setViewAction()
+    }
+    
+    func submit(description: String) {
         Task {
-            viewModel.response = try await viewModel.netPromoterScoreService.getNetPromoterScore(request: viewModel.request)
+            let req = NetPromoterScoreViewRequest(comment: description)
+            let _ = try await viewModel.setScore(viewRequest: req)
+            dismiss(animated: true)
         }
+    }
+    
+    func cancel() {
+        dismiss(animated: true)
     }
 }

@@ -10,6 +10,7 @@ import UIKit
 public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol, UITextViewDelegate {
     var config: NetPromoterScoreViewConfig
     var viewModel: NetPromoterScoreViewModel
+    public var delegate: NetPromoterScoreDelegate?
     lazy var contentView: UIView = {
         let contentView = UIView()
         contentView.backgroundColor = config.contentViewBackColor
@@ -129,7 +130,7 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol, U
             borderWidth: config.submitButtonBorderWidth,
             borderColor: config.submitButtonBorderColor
         )
-//        button.addTarget(self, action: #selector(openLink), for: .touchUpInside)
+        button.addTarget(self, action: #selector(submitButtonTapped), for: .touchUpInside)
         button.titleLabel?.font = config.submitButtonFont
         button.setTitleColor(config.submitButtonTitleColor, for: .normal)
         return button
@@ -144,7 +145,7 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol, U
             borderWidth: config.cancelButtonBorderWidth,
             borderColor: config.cancelButtonBorderColor
         )
-//        button.addTarget(self, action: #selector(openLink), for: .touchUpInside)
+        button.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
         button.titleLabel?.font = config.cancelButtonFont
         button.setTitleColor(config.cancelButtonTitleColor, for: .normal)
         return button
@@ -241,6 +242,7 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol, U
     }
     @objc
     func digitPressed(_ sender: UIButton) {
+        viewModel.score = sender.tag
         rateView.arrangedSubviews.forEach { view in
             if let button = view as? UIButton {
                 gaugeView.needleValue = CGFloat(sender.tag) * 10
@@ -647,11 +649,20 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol, U
             multiplier: 1,
             constant: 253).isActive = true
     }
+    
+    @objc
+    func submitButtonTapped() {
+        delegate?.submit(description: descriptionTextView.text)
+    }
+    @objc
+    func cancelButtonTapped() {
+        delegate?.cancel()
+    }
 }
 
 public class NetPromoterScoreViewConfig_Digit: NetPromoterScoreViewConfig {
-    public override init(lang: String) {
-        super.init(lang: lang)
+    public override init() {
+        super.init()
         style = .digit
     }
 }
