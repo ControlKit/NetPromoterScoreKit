@@ -24,7 +24,7 @@ class NetPromoterScoreViewController: UIViewController, NetPromoterScoreDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         let netPromoterScoreView = NetPromoterScoreViewStyle.make(viewModel: viewModel,
-                                                    config: config.viewConfig)
+                                                                  config: config.viewConfig)
         view.addSubview(netPromoterScoreView)
         netPromoterScoreView.fixInView(view)
         netPromoterScoreView.delegate = self
