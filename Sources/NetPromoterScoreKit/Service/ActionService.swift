@@ -25,20 +25,21 @@ public class ActionService: ActionServiceProtocol {
             )
             let (data, res) = try await URLSession.shared.data(for: req)
             if (res as? HTTPURLResponse)?.statusCode == 204 {
-                print("204")
+                print("NPS Action Response --> 204")
                 return nil
             }
             req.httpMethod = "POST"
             req.httpBody = try JSONEncoder().encode(request.params)
             if let AgreementResponse = try? JSONDecoder().decode(ActionResponse.self, from: data) {
+                print("NPS Action Response --> 200")
                 print(AgreementResponse)
                 return AgreementResponse
             } else {
-                print("Invalid Response")
+                print("NPS Action Response --> Decode Error")
                 return nil
             }
         } catch {
-            print("Failed to Send POST Request \(error)")
+            print("Failed to Send POST NPS Action Request \(error)")
             return nil
         }
     }

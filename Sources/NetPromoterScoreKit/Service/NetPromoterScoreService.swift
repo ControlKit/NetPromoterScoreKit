@@ -27,17 +27,19 @@ public class NetPromoterScoreService: NetPromoterScoreServiceProtocol {
             req.httpBody = try JSONEncoder().encode(request.params)
             let (data, res) = try await URLSession.shared.data(for: req)
             if (res as? HTTPURLResponse)?.statusCode == 204 {
+                print("NPS Response --> 204")
                 return nil
             }
             if let response = try? JSONDecoder().decode(NetPromoterScoreResponse.self, from: data) {
+                print("NPS Response --> 200")
                 print(response)
                 return response
             } else {
-                print("Invalid Response")
+                print("NPS Response --> Decode Error")
                 return nil
             }
         } catch {
-            print("Failed to Send POST Request \(error)")
+            print("Failed to Send POST NPS Request \(error)")
             return nil
         }
     }
