@@ -28,11 +28,12 @@ class NetPromoterScoreViewController: UIViewController, NetPromoterScoreDelegate
         view.addSubview(netPromoterScoreView)
         netPromoterScoreView.fixInView(view)
         netPromoterScoreView.delegate = self
-        viewModel.setViewAction()
+        viewModel.setAction(.view)
     }
     
     func submit(description: String) {
         Task {
+            viewModel.setAction(.submit)
             let req = NetPromoterScoreViewRequest(comment: description)
             let _ = try await viewModel.setScore(viewRequest: req)
             dismiss(animated: true)
@@ -40,6 +41,7 @@ class NetPromoterScoreViewController: UIViewController, NetPromoterScoreDelegate
     }
     
     func cancel() {
+        viewModel.setAction(.cancel)
         dismiss(animated: true)
     }
 }

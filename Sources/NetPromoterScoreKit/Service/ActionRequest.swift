@@ -8,7 +8,8 @@ import Foundation
 public struct ActionRequest {
     public var appId: String
     public var name: String
-    public var route: String = "https://tauri.ir/api/nps/view"
+    public var action: NPSAction
+    public var route: String = "https://tauri.ir/api/nps/"
     public var deviceUUID: String = UUID().uuidString
     public var sdkVersion: String = netPromoterScoreKit_Version
     public var applicationVersion: String = Bundle.main.releaseVersionNumber ?? String()
@@ -26,3 +27,9 @@ public struct ActionRequest {
         ]
     }
 }
+public enum NPSAction: String {
+    case view
+    case submit
+    case cancel
+}
+  
