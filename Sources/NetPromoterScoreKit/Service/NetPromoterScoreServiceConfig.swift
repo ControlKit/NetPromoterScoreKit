@@ -18,7 +18,7 @@ public struct NetPromoterScoreServiceConfig {
     }
     public var name: String
     public var appId: String
-    public var version: String = "1"
+    public var version: String = Bundle.main.releaseVersionNumber ?? String()
     public var sdkVersion: String = "1.0.0"
     public var viewConfig: NetPromoterScoreViewConfig
 }
