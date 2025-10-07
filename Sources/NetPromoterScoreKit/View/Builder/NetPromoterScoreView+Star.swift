@@ -492,19 +492,3 @@ public class NetPromoterScoreViewConfig_Star: NetPromoterScoreViewConfig {
         cancelButtonRadius = 20.0
     }
 }
-
-class ImageHelper {
-    static var resolvedBundle: Bundle {
-#if SWIFT_PACKAGE
-        return Bundle.module
-#else
-        return Bundle(for: self)
-#endif
-    }
-    
-    static func image(_ name: String) -> UIImage? {
-        return UIImage(named: name,
-                       in: resolvedBundle,
-                       compatibleWith: nil)
-    }
-}
