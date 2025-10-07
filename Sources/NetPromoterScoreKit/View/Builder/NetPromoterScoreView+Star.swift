@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import ControlKitBase
 
 public class NetPromoterScoreView_Star: UIView, NetPromoterScoreViewProtocol {
     var config: NetPromoterScoreViewConfig

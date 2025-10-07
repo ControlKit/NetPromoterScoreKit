@@ -6,10 +6,14 @@
 //
 
 import Foundation
-public struct NetPromoterScoreRequest {
+import ControlKitBase
+public struct NetPromoterScoreRequest: GenericRequest {
     public var appId: String
-    public var route: String = "https://tauri.ir/api/nps/submit"
-    public var deviceUUID: String = UUID().uuidString
+    public var itemId: String?
+    public var route: ControlKitItem = .nps
+    public var extraParameter: String? = "submit"
+    public var httpMethod: HTTPMethod = .post
+    public var deviceUUID: String = CKDeviceUUID
     public var sdkVersion: String = netPromoterScoreKit_Version
     public var applicationVersion: String = Bundle.main.releaseVersionNumber ?? String()
 
@@ -17,14 +21,14 @@ public struct NetPromoterScoreRequest {
     public var score: String
     public var comment: String
     
-    var headers: [String: String] {
+    public var headers: [String: String] {
         return ["x-app-id": appId,
                 "x-sdk-version": sdkVersion,
                 "x-version": applicationVersion,
                 "x-device-uuid": deviceUUID]
     }
     
-    var params: [String: String] {
+    public var body: [String: String] {
         return ["name": name,
                 "score": score,
                 "comment": comment]

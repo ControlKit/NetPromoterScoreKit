@@ -6,23 +6,17 @@
 //
 
 import Foundation
-
-public typealias NetPromoterScoreLocalString = [NetPromoterScoreLocalizedText]
-
+import ControlKitBase
 public struct NetPromoterScoreResponse: Codable {
     public var data: [NetPromoterScoreModel]?
 }
 public struct NetPromoterScoreModel: Codable {
     public let id: String
-    public let title: NetPromoterScoreLocalString?
-    public let termsTitle: NetPromoterScoreLocalString?
-    public let termsDescription: NetPromoterScoreLocalString?
-    public let acceptButtonTitle: NetPromoterScoreLocalString?
-    public let declineButtonTitle: NetPromoterScoreLocalString?
+    public let title: LocalString?
+    public let termsTitle: LocalString?
+    public let termsDescription: LocalString?
+    public let acceptButtonTitle: LocalString?
+    public let declineButtonTitle: LocalString?
     public let version: String?
     public let created_at: String?
-}
-public struct NetPromoterScoreLocalizedText: Codable {
-    public let language: String?
-    public let content: String?
 }

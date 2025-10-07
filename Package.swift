@@ -14,9 +14,16 @@ let package = Package(
             targets: ["NetPromoterScoreKit"]
         ),
     ],
+    dependencies: [
+        .package(
+            url: "https://github.com/ControlKit/ControlKitBase.git",
+            branch: "main"
+        )
+    ],
     targets: [
         .target(
             name: "NetPromoterScoreKit",
+            dependencies: ["ControlKitBase"],
             resources: [.process("Resources")]
         ),
         .testTarget(
