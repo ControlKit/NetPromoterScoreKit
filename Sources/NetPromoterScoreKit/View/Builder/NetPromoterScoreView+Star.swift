@@ -490,5 +490,9 @@ public class NetPromoterScoreViewConfig_Star: NetPromoterScoreViewConfig {
         cancelButtonBackColor = .clear
         cancelButtonBorderWidth = 1.0
         cancelButtonRadius = 20.0
+        
+        alertSuccessIconName = "success"
+        alertSuccessIconColor = UIColor(r: 115, g: 3, b: 0)
+        alertSuccessButtonBackgroundColor = UIColor(r: 115, g: 3, b: 0)
     }
 }
