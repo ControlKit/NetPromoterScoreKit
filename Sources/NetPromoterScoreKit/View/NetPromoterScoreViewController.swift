@@ -33,11 +33,41 @@ class NetPromoterScoreViewController: UIViewController, NetPromoterScoreDelegate
     
     func submit(description: String) {
         Task {
-            viewModel.setAction(.submit)
-            let req = NetPromoterScoreViewRequest(comment: description)
-            let _ = try await viewModel.setScore(viewRequest: req)
-            dismiss(animated: true)
+            do {
+                viewModel.setAction(.submit)
+                let req = NetPromoterScoreViewRequest(comment: description)
+                let _ = try await viewModel.setScore(viewRequest: req)
+                DispatchQueue.main.async {
+                    self.showSuccessAlert()
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    self.showErrorAlert(error: error)
+                }
+            }
         }
+    }
+    
+    private func showSuccessAlert() {
+        let alertView = AlertView(config: config.viewConfig)
+        alertView.configure(
+            type: .success,
+            message: config.viewConfig.successMessage,
+            onDismiss: { [weak self] in
+                self?.dismiss(animated: true)
+            }
+        )
+        alertView.show(in: self.view)
+    }
+    
+    private func showErrorAlert(error: Error) {
+        let alertView = AlertView(config: config.viewConfig)
+        alertView.configure(
+            type: .error,
+            message: config.viewConfig.errorMessage + error.localizedDescription,
+            onDismiss: nil
+        )
+        alertView.show(in: self.view)
     }
     
     func cancel() {
