@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ControlKitBase
 
 class NetPromoterScoreViewController: UIViewController, NetPromoterScoreDelegate {
     var viewModel: NetPromoterScoreViewModel
@@ -35,6 +36,7 @@ class NetPromoterScoreViewController: UIViewController, NetPromoterScoreDelegate
         Task {
             do {
                 viewModel.setAction(.submit)
+                viewModel.saveLastId()
                 let req = NetPromoterScoreViewRequest(comment: description)
                 let _ = try await viewModel.setScore(viewRequest: req)
                 DispatchQueue.main.async {
