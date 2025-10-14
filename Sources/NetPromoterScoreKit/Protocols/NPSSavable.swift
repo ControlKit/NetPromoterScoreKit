@@ -6,10 +6,10 @@
 //
 import Foundation
 public protocol NPSSavable {
-    func saveLatestResponseId(id: String)
+    func saveLatestId(id: String)
 }
 public extension NPSSavable {
-    func saveLatestResponseId(id: String) {
+    func saveLatestId(id: String) {
         UserDefaults.standard.set(id, forKey: latestNPSKey)
     }
 }

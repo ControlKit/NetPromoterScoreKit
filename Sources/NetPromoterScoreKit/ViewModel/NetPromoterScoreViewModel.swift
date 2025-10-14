@@ -38,6 +38,6 @@ public final class DefaultNetPromoterScoreViewModel: NetPromoterScoreViewModel {
     }
     
     public func saveLastId() {
-        saveLatestResponseId(id: npsModel.id)
+        saveLatestId(id: npsModel.id)
     }
 }
