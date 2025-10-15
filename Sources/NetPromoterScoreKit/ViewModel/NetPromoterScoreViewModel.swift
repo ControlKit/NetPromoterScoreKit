@@ -17,6 +17,7 @@ public protocol NetPromoterScoreViewModel: NetPromoterScoreable,
     var response: NetPromoterScoreResponse? { get set }
     var npsModel: NPSModel { get set }
     func saveLastId()
+    var score: Int { get set }
 }
 
 public final class DefaultNetPromoterScoreViewModel: NetPromoterScoreViewModel {
@@ -38,6 +39,6 @@ public final class DefaultNetPromoterScoreViewModel: NetPromoterScoreViewModel {
     }
     
     public func saveLastId() {
-        saveLatestId(id: npsModel.id)
+        saveLatestId(id: npsModel.id, name: getName(serviceConfig.name))
     }
 }

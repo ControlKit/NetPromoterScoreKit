@@ -663,7 +663,6 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol, U
 public class NetPromoterScoreViewConfig_Digit: NetPromoterScoreViewConfig {
     public override init() {
         super.init()
-        style = .digit
         alertSuccessIconName = "success"
         alertSuccessIconColor = UIColor(r: 234, g: 88, b: 12)
         alertSuccessButtonBackgroundColor = UIColor(r: 234, g: 88, b: 12)

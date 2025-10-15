@@ -8,27 +8,19 @@
 import Foundation
 import UIKit
 
-public enum NetPromoterScoreViewStyle {
-    case star
-    case digit
+public enum NetPromoterScoreViewStyle: String {
+    case star = "STARS"
+    case digit = "DIGITS"
     public static func make(viewModel: NetPromoterScoreViewModel,
-                            config: NetPromoterScoreViewConfig) -> NetPromoterScoreViewProtocol {
-        switch config.style {
+                            config: NetPromoterScoreViewConfig,
+                            type: NetPromoterScoreViewStyle) -> NetPromoterScoreViewProtocol {
+        switch type {
         case .star:
             return NetPromoterScoreView_Star(viewModel: viewModel,
                                              config: config)
         case .digit:
             return NetPromoterScoreView_Digit(viewModel: viewModel,
                                               config: config)
-        }
-    }
-    
-    public static func getViewConfigWithStyle(style: NetPromoterScoreViewStyle) -> NetPromoterScoreViewConfig {
-        switch style {
-        case .star:
-            NetPromoterScoreViewConfig_Star()
-        case .digit:
-            NetPromoterScoreViewConfig_Digit()
         }
     }
 }

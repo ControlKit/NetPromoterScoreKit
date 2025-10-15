@@ -25,8 +25,3 @@ public struct NPSModel: Codable {
     public let type: String
     public let created_at: String?
 }
-
-enum NPSStyleType: String {
-    case digit
-    case star
-}

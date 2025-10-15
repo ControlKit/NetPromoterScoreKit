@@ -7,18 +7,16 @@
 
 import Foundation
 public struct NetPromoterScoreServiceConfig {
-    public init(style: NetPromoterScoreViewStyle = .star,
-                name: String,
+    public init(name: String,
                 appId: String,
-                version: String) {
-        self.viewConfig = NetPromoterScoreViewStyle.getViewConfigWithStyle(style: style)
+                viewConfig: NetPromoterScoreViewConfig) {
+        self.viewConfig = viewConfig
         self.name = name
         self.appId = appId
-        self.version = version
     }
     public var name: String
     public var appId: String
     public var version: String = Bundle.main.releaseVersionNumber ?? String()
-    public var sdkVersion: String = "1.0.0"
+    public var sdkVersion: String = netPromoterScoreKit_Version
     public var viewConfig: NetPromoterScoreViewConfig
 }

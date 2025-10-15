@@ -25,7 +25,8 @@ class NetPromoterScoreViewController: UIViewController, NetPromoterScoreDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         let netPromoterScoreView = NetPromoterScoreViewStyle.make(viewModel: viewModel,
-                                                                  config: config.viewConfig)
+                                                                  config: config.viewConfig,
+                                                                  type: getType())
         view.addSubview(netPromoterScoreView)
         netPromoterScoreView.fixInView(view)
         netPromoterScoreView.delegate = self
@@ -70,6 +71,10 @@ class NetPromoterScoreViewController: UIViewController, NetPromoterScoreDelegate
             onDismiss: nil
         )
         alertView.show(in: self.view)
+    }
+    
+    private func getType() -> NetPromoterScoreViewStyle {
+        return viewModel.npsModel.type == NetPromoterScoreViewStyle.star.rawValue ? .star : .digit
     }
     
     func cancel() {

@@ -469,7 +469,6 @@ public class NetPromoterScoreView_Star: UIView, NetPromoterScoreViewProtocol {
 public class NetPromoterScoreViewConfig_Star: NetPromoterScoreViewConfig {
     public override init() {
         super.init()
-        style = .star
         containerViewBackColor = UIColor(r: 115, g: 3, b: 0, a: 1.0)
         questionFont = UIFont.systemFont(ofSize: 17, weight: .semibold)
         questionText = "How do you enjoy this app? Tap a star to rate it on the App Store."

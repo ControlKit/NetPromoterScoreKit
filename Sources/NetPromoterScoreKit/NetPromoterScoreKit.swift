@@ -6,7 +6,6 @@ import Combine
 import ControlKitBase
 
 public let netPromoterScoreKit_Version: String = "1.0.0"
-public let latestNPSKey: String = "latestNPSKey"
 public class NetPromoterScoreKit: NPSFetchable {
     public var npsService: GenericServiceProtocol
     public init(npsService: GenericServiceProtocol = GenericService()) {
@@ -23,7 +22,7 @@ public class NetPromoterScoreKit: NPSFetchable {
             guard let response = try await self.getNPS(request: request)?.value else {
                 return
             }
-            guard response.data.id > UserDefaults.standard.string(forKey: latestNPSKey) ?? String() else {
+            guard response.data.id > UserDefaults.standard.string(forKey: getName(config.name)) ?? String() else {
                 return
             }
             let viewModel = DefaultNetPromoterScoreViewModel(serviceConfig: config, npsModel: response.data)
