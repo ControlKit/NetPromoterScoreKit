@@ -47,6 +47,7 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol, U
         gaugeView.backgroundColor = config.gaugeViewBackColor
         gaugeView.applyShadow = false
         gaugeView.isRoundCap = false
+        gaugeView.colorCodes = config.gaugeColorCodes
         return gaugeView
     }()
     lazy var questionLabel: UILabel = {
@@ -227,15 +228,15 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol, U
     func getButtonBackColor(tag: Int) -> UIColor {
         switch tag {
         case 1...2:
-            return UIColor(r: 254, g: 215, b: 170)
+            return config.buttonScoreColor1
         case 3:
-            return UIColor(r: 248, g: 185, b: 113)
+            return config.buttonScoreColor2
         case 4...6:
-            return UIColor(r: 251, g: 146, b: 60)
+            return config.buttonScoreColor3
         case 7:
-            return UIColor(r: 253, g: 124, b: 56)
+            return config.buttonScoreColor4
         case 8...10:
-            return UIColor(r: 234, g: 88, b: 12)
+            return config.buttonScoreColor5
         default:
             return .clear
         }

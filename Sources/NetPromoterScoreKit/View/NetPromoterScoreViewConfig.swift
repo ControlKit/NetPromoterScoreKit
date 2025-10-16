@@ -13,6 +13,7 @@ public class NetPromoterScoreViewConfig {
     public var containerViewBackColor: UIColor = .white
     public var containerViewRadius: CGFloat = 20.0
     public var gaugeViewBackColor: UIColor = .clear
+    public var gaugeColorCodes: String = "fbd7aa,f7923c,ea580b"
     public var bottomViewBackColor: UIColor = UIColor(r: 245, g: 254, b: 255, a: 1.0)
     public var rateViewBackColor: UIColor = .clear
     public var logoImage: UIImage?
@@ -54,6 +55,13 @@ public class NetPromoterScoreViewConfig {
     public var rateButtonBackColor: UIColor = .clear
     public var rateButtonRadius: CGFloat = 10.0
     public var rateButtonBorderWidth: CGFloat = 0.5
+    
+    // MARK: - Button Score Colors (5 separate colors for different score ranges)
+    public var buttonScoreColor1: UIColor = UIColor(r: 254, g: 215, b: 170) // For scores 1-2
+    public var buttonScoreColor2: UIColor = UIColor(r: 248, g: 185, b: 113) // For score 3
+    public var buttonScoreColor3: UIColor = UIColor(r: 251, g: 146, b: 60)  // For scores 4-6
+    public var buttonScoreColor4: UIColor = UIColor(r: 253, g: 124, b: 56)  // For score 7
+    public var buttonScoreColor5: UIColor = UIColor(r: 234, g: 88, b: 12)   // For scores 8-10
     
     public var textViewFont = UIFont.systemFont(ofSize: 12, weight: .regular)
     public var textViewColor: UIColor = .black

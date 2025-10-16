@@ -85,7 +85,13 @@ public class ABGaugeView: UIView {
         arcs[1].arcCap = self.capStyle
         arcs[2].arcCap = self.capStyle
         for i in 0..<arcs.count {
-            createArcWith(startAngle: arcs[i].startAngle, endAngle: arcs[i].endAngle, arcCap: arcs[i].arcCap, strokeColor: arcs[i].strokeColor, center: arcs[i].center)
+            createArcWith(
+                startAngle: arcs[i].startAngle,
+                endAngle: arcs[i].endAngle,
+                arcCap: arcs[i].arcCap,
+                strokeColor: arcs[i].strokeColor,
+                center: arcs[i].center
+            )
         }
         
         if blinkAnimate {
@@ -135,7 +141,13 @@ public class ABGaugeView: UIView {
         return angles
     }
     
-    func createArcWith(startAngle: CGFloat, endAngle: CGFloat, arcCap: CGLineCap, strokeColor: UIColor, center:CGPoint) {
+    func createArcWith(
+        startAngle: CGFloat,
+        endAngle: CGFloat,
+        arcCap: CGLineCap,
+        strokeColor: UIColor,
+        center:CGPoint
+    ) {
         // 1
         let center = center
         let radius: CGFloat = max(bounds.width, bounds.height)/2 - self.frame.width/20
@@ -156,7 +168,16 @@ public class ABGaugeView: UIView {
     func drawNeedleCircle() {
         // 1
         let circleLayer = CAShapeLayer()
-        let circlePath = UIBezierPath(arcCenter: CGPoint(x: bounds.width / 2, y: bounds.height / 2), radius: self.bounds.width/20, startAngle: 0.0, endAngle: CGFloat(2 * Double.pi), clockwise: false)
+        let circlePath = UIBezierPath(
+            arcCenter: CGPoint(
+                x: bounds.width / 2,
+                y: bounds.height / 2
+            ),
+            radius: self.bounds.width/20,
+            startAngle: 0.0,
+            endAngle: CGFloat(2 * Double.pi),
+            clockwise: false
+        )
         // 2
         circleLayer.path = circlePath.cgPath
         circleLayer.fillColor = circleColor.cgColor
@@ -206,14 +227,40 @@ public class ABGaugeView: UIView {
         let theD = (radians - thisRadians)/2
         firstAngle += theD
         let needleValue = radian(for: self.needleValue) + firstAngle
-        animate(triangleLayer: triangleLayer, shadowLayer: shadowLayer, fromValue: .pi/2, toValue: needleValue*1.05, duration: 0.5) {
-            self.animate(triangleLayer: triangleLayer, shadowLayer: shadowLayer, fromValue: needleValue*1.05, toValue: needleValue*0.95, duration: 0.4, callBack: {
-                self.animate(triangleLayer: triangleLayer, shadowLayer: shadowLayer, fromValue: needleValue*0.95, toValue: needleValue, duration: 0.6, callBack: {})
+        animate(
+            triangleLayer: triangleLayer,
+            shadowLayer: shadowLayer,
+            fromValue: .pi/2,
+            toValue: needleValue*1.05,
+            duration: 0.5
+        ) {
+            self.animate(
+                triangleLayer: triangleLayer,
+                shadowLayer: shadowLayer,
+                fromValue: needleValue*1.05,
+                toValue: needleValue*0.95,
+                duration: 0.4,
+                callBack: {
+                    self.animate(
+                        triangleLayer: triangleLayer,
+                        shadowLayer: shadowLayer,
+                        fromValue: needleValue*0.95,
+                        toValue: needleValue,
+                        duration: 0.6,
+                        callBack: {
+                        })
             })
         }
     }
     
-    func animate(triangleLayer: CAShapeLayer, shadowLayer:CAShapeLayer, fromValue: CGFloat, toValue:CGFloat, duration: CFTimeInterval, callBack:@escaping ()->Void) {
+    func animate(
+        triangleLayer: CAShapeLayer,
+        shadowLayer:CAShapeLayer,
+        fromValue: CGFloat,
+        toValue:CGFloat,
+        duration: CFTimeInterval,
+        callBack:@escaping ()->Void
+    ) {
         // 1
         CATransaction.begin()
         let spinAnimation1 = CABasicAnimation(keyPath: "transform.rotation.z")
