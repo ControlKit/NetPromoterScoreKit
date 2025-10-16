@@ -11,7 +11,7 @@ public struct NPSRequest: GenericRequest {
     public var appId: String
     public var itemId: String?
     public var route: ControlKitItem = .nps
-    public var extraParameter: String?
+    public var extraParameter: String? = "index"
     public var httpMethod: HTTPMethod = .get
     public var deviceUUID: String = CKDeviceUUID
     public var sdkVersion: String = netPromoterScoreKit_Version
