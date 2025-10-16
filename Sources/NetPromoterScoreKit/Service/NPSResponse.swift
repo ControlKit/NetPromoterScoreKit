@@ -16,7 +16,7 @@ public struct NPSModel: Codable {
     public let title: LocalString
     public let description: LocalString
     public let recommend: LocalString
-    public let icon: String
+    public let icon: String?
     public let min_title: LocalString
     public let max_title: LocalString
     public let input_label: LocalString
