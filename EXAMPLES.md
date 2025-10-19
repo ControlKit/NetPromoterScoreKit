@@ -2,6 +2,15 @@
 
 This document provides comprehensive examples and use cases for the NetPromoterScoreKit.
 
+## 🌐 Cross-Platform Development
+
+This project is part of the ControlKit ecosystem, providing consistent NPS experiences across platforms:
+
+- **iOS**: [NetPromoterScoreKit](https://github.com/ControlKit/NetPromoterScoreKit) (Swift/UIKit)
+- **Android**: [NetPromoterScoreKit-Android](https://github.com/ControlKit/NetPromoterScoreKit-Android) (Kotlin/Compose)
+
+Both libraries share the same configuration system and API design, making cross-platform development seamless.
+
 ## 🚀 Basic Examples
 
 ### Example 1: Minimal Setup
@@ -490,3 +499,4 @@ class PlatformViewController: UIViewController {
 ---
 
 These examples demonstrate the flexibility and power of the NetPromoterScoreKit. You can mix and match these approaches to create the perfect NPS experience for your app!
+

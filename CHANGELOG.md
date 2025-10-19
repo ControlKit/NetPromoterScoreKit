@@ -126,4 +126,14 @@ config.buttonScoreColor1 = UIColor.systemOrange
 
 ---
 
-For more information about changes, see the [GitHub Releases](https://github.com/yourusername/NetPromoterScoreKit/releases) page.
+For more information about changes, see the [GitHub Releases](https://github.com/ControlKit/NetPromoterScoreKit/releases) page.
+
+## Cross-Platform Support
+
+This iOS library is part of the ControlKit ecosystem:
+
+- **iOS**: [NetPromoterScoreKit](https://github.com/ControlKit/NetPromoterScoreKit) (Swift/UIKit)
+- **Android**: [NetPromoterScoreKit-Android](https://github.com/ControlKit/NetPromoterScoreKit-Android) (Kotlin/Compose)
+
+Both libraries maintain API consistency for seamless cross-platform development.
+

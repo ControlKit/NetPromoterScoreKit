@@ -14,7 +14,7 @@ Thank you for your interest in contributing to NetPromoterScoreKit! This documen
 
 1. **Fork the repository**
    ```bash
-   git clone https://github.com/yourusername/NetPromoterScoreKit.git
+   git clone https://github.com/ControlKit/NetPromoterScoreKit.git
    cd NetPromoterScoreKit
    ```
 
@@ -197,9 +197,10 @@ We use these labels for issues and PRs:
 
 ## 📞 Getting Help
 
-- **GitHub Issues**: For bugs and feature requests
+- **GitHub Issues**: [ControlKit/NetPromoterScoreKit Issues](https://github.com/ControlKit/NetPromoterScoreKit/issues)
 - **Discussions**: For questions and general discussion
-- **Email**: For security issues or private matters
+- **Email**: support@controlkit.com
+- **Website**: [ControlKit](https://controlkit.com)
 
 ## 🎉 Recognition
 
@@ -215,3 +216,4 @@ By contributing, you agree that your contributions will be licensed under the sa
 ---
 
 Thank you for contributing to NetPromoterScoreKit! 🚀
+

@@ -53,7 +53,7 @@ Add the following to your `Package.swift`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/yourusername/NetPromoterScoreKit.git", from: "1.0.0")
+    .package(url: "https://github.com/ControlKit/NetPromoterScoreKit.git", from: "1.0.0")
 ]
 ```
 
@@ -327,11 +327,11 @@ private func shouldShowNPSSurvey() -> Bool {
 
 ## 🤝 Contributing
 
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
+We welcome contributions! Please see our [Contributing Guidelines](https://github.com/ControlKit/NetPromoterScoreKit/blob/main/CONTRIBUTING.md) for details.
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/ControlKit/NetPromoterScoreKit/blob/main/LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
@@ -339,11 +339,21 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Inspired by modern iOS design principles
 - Community-driven development
 
+## 📱 Cross-Platform Support
+
+This project is part of the ControlKit ecosystem, providing NPS solutions for both platforms:
+
+- **iOS**: [NetPromoterScoreKit](https://github.com/ControlKit/NetPromoterScoreKit) (Swift/UIKit)
+- **Android**: [NetPromoterScoreKit-Android](https://github.com/ControlKit/NetPromoterScoreKit-Android) (Kotlin/Compose)
+
+Both libraries share the same API design and configuration system, making it easy to maintain consistent NPS experiences across your iOS and Android apps.
+
 ## 📞 Support
 
-- 📧 Email: support@example.com
-- 🐛 Issues: [GitHub Issues](https://github.com/yourusername/NetPromoterScoreKit/issues)
-- 📖 Documentation: [Full Documentation](https://github.com/yourusername/NetPromoterScoreKit/wiki)
+- 📧 Email: support@controlkit.com
+- 🐛 Issues: [GitHub Issues](https://github.com/ControlKit/NetPromoterScoreKit/issues)
+- 📖 Documentation: [Full Documentation](https://github.com/ControlKit/NetPromoterScoreKit/wiki)
+- 🌐 Website: [ControlKit](https://controlkit.com)
 
 ---
 
