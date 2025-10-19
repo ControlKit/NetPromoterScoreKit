@@ -1,4 +1,4 @@
-# NetPromoterScoreKit 📊
+# NetPromoterScoreKit  <img src='https://github.com/maziar/ReadmeFiles/blob/main/NetPromoterScoreKit.svg' width='30'/>
 
 [![Swift](https://img.shields.io/badge/Swift-5.0+-orange.svg)](https://swift.org)
 [![iOS](https://img.shields.io/badge/iOS-13.0+-blue.svg)](https://developer.apple.com/ios/)
