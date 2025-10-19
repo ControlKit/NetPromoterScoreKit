@@ -11,6 +11,49 @@ This project is part of the ControlKit ecosystem, providing consistent NPS exper
 
 Both libraries share the same configuration system and API design, making cross-platform development seamless.
 
+### Cross-Platform Configuration Example
+
+```swift
+// iOS (Swift)
+let config = NetPromoterScoreViewConfig()
+config.headerText = "Rate Our App"
+config.buttonScoreColor1 = UIColor.systemOrange
+config.buttonScoreColor2 = UIColor.systemYellow
+config.buttonScoreColor3 = UIColor.systemGreen
+config.buttonScoreColor4 = UIColor.systemBlue
+config.buttonScoreColor5 = UIColor.systemPurple
+
+let serviceConfig = NetPromoterScoreServiceConfig(
+    name: "MyApp",
+    appId: "your-app-id",
+    viewConfig: config
+)
+
+let npsKit = NetPromoterScoreKit()
+await npsKit.configure(root: self, config: serviceConfig)
+```
+
+```kotlin
+// Android (Kotlin) - Same configuration approach
+val config = NetPromoterScoreViewConfig().apply {
+    headerText = "Rate Our App"
+    buttonScoreColor1 = Color.parseColor("#FF9500")
+    buttonScoreColor2 = Color.parseColor("#FFCC00")
+    buttonScoreColor3 = Color.parseColor("#34C759")
+    buttonScoreColor4 = Color.parseColor("#007AFF")
+    buttonScoreColor5 = Color.parseColor("#5856D6")
+}
+
+val serviceConfig = NetPromoterScoreServiceConfig(
+    name = "MyApp",
+    appId = "your-app-id",
+    viewConfig = config
+)
+
+val npsKit = NetPromoterScoreKit()
+npsKit.configure(activity = this, config = serviceConfig)
+```
+
 ## 🚀 Basic Examples
 
 ### Example 1: Minimal Setup

@@ -339,6 +339,27 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 - Inspired by modern iOS design principles
 - Community-driven development
 
+## 🏢 About ControlKit
+
+NetPromoterScoreKit is part of the **ControlKit** ecosystem - a comprehensive suite of developer tools and UI components designed to accelerate mobile app development.
+
+### ControlKit Ecosystem
+
+- **iOS Components**: Swift/UIKit libraries for iOS development
+- **Android Components**: Kotlin/Compose libraries for Android development
+- **Cross-Platform**: Consistent APIs across platforms
+- **Developer Tools**: SDKs, analytics, and development utilities
+
+### Why ControlKit?
+
+- 🚀 **Rapid Development**: Pre-built, production-ready components
+- 🎨 **Consistent Design**: Unified design system across platforms
+- 🔧 **Easy Integration**: Simple APIs with extensive customization
+- 📊 **Built-in Analytics**: Comprehensive tracking and insights
+- 🌐 **Cross-Platform**: Same experience on iOS and Android
+
+Visit [ControlKit](https://controlkit.com) to explore more components and tools.
+
 ## 📱 Cross-Platform Support
 
 This project is part of the ControlKit ecosystem, providing NPS solutions for both platforms:
