@@ -6,6 +6,7 @@
 //
 import Foundation
 import UIKit
+import ControlKitBase
 
 public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol, UITextViewDelegate {
     var config: NetPromoterScoreViewConfig
@@ -159,6 +160,7 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol, U
                          config: NetPromoterScoreViewConfig) {
         self.config = config
         self.viewModel = viewModel
+        self.config = NPSPresenter(data: viewModel.npsModel, config: config).config
         super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         setup()
     }
@@ -662,8 +664,8 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol, U
 }
 
 public class NetPromoterScoreViewConfig_Digit: NetPromoterScoreViewConfig {
-    public override init() {
-        super.init()
+    public override init(lang: CKLanguage) {
+        super.init(lang: lang)
         alertSuccessIconName = "success"
         alertSuccessIconColor = UIColor(r: 234, g: 88, b: 12)
         alertSuccessButtonBackgroundColor = UIColor(r: 234, g: 88, b: 12)

@@ -92,6 +92,7 @@ public class NetPromoterScoreView_Star: UIView, NetPromoterScoreViewProtocol {
                          config: NetPromoterScoreViewConfig) {
         self.config = config
         self.viewModel = viewModel
+        self.config = NPSPresenter(data: viewModel.npsModel, config: config).config
         super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         setup()
     }
@@ -467,8 +468,8 @@ public class NetPromoterScoreView_Star: UIView, NetPromoterScoreViewProtocol {
 }
 
 public class NetPromoterScoreViewConfig_Star: NetPromoterScoreViewConfig {
-    public override init() {
-        super.init()
+    public override init(lang: CKLanguage) {
+        super.init(lang: lang)
         containerViewBackColor = UIColor(r: 115, g: 3, b: 0, a: 1.0)
         questionFont = UIFont.systemFont(ofSize: 17, weight: .semibold)
         questionText = "How do you enjoy this app? Tap a star to rate it on the App Store."

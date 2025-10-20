@@ -7,8 +7,12 @@
 
 import Foundation
 import UIKit
+import ControlKitBase
 public class NetPromoterScoreViewConfig {
-    public init() {}
+    public init(lang: CKLanguage) {
+        self.lang = lang
+    }
+    public let lang: CKLanguage
     public var contentViewBackColor: UIColor = UIColor(r: 167, g: 167, b: 167, a: 0.8)
     public var containerViewBackColor: UIColor = .white
     public var containerViewRadius: CGFloat = 20.0

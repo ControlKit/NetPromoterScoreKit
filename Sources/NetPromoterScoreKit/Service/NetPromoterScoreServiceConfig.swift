@@ -6,15 +6,19 @@
 //
 
 import Foundation
+import ControlKitBase
 public struct NetPromoterScoreServiceConfig {
     public init(name: String,
                 appId: String,
+                language: CKLanguage,
                 viewConfig: NetPromoterScoreViewConfig) {
         self.viewConfig = viewConfig
         self.name = name
         self.appId = appId
+        self.language = language
     }
     public var name: String
+    public var language: CKLanguage
     public var appId: String
     public var version: String = Bundle.main.releaseVersionNumber ?? String()
     public var sdkVersion: String = netPromoterScoreKit_Version
