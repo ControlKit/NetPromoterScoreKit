@@ -16,7 +16,7 @@ public extension NPSActionable where Self: NetPromoterScoreViewModel {
                 name: serviceConfig.name,
                 action: action
             )
-            request.extraParameter = "\(request.action.rawValue)"
+            request.extraParameter = "\(request.action.rawValue.lowercased())"
             let result: Result<ActionResponse> = try await actionService.execute(request: request)
             
         }
