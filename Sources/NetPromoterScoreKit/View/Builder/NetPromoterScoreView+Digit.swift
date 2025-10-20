@@ -28,7 +28,7 @@ public class NetPromoterScoreView_Digit: UIView, NetPromoterScoreViewProtocol, U
         label.font = config.headerFont
         label.text = config.headerText
         label.textColor = config.headerColor
-        label.textAlignment = .left
+        label.textAlignment = .center
         label.numberOfLines = 1
         return label
     }()
